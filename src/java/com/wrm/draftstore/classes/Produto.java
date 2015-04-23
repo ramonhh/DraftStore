@@ -17,6 +17,8 @@ public class Produto {
     
     private String tipoProduto;
     
+    private String idFornecedor;
+    
     private float custo;
     
     private float porcentagemLucro;
@@ -50,6 +52,14 @@ public class Produto {
     }
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+    
+    public String getIdFornecedor() {
+        return idFornecedor;
+    }
+
+    public void setIdFornecedor(String idFornecedor) {
+        this.idFornecedor = idFornecedor;
     }
 
 }

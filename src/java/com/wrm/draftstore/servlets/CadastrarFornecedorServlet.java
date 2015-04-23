@@ -5,7 +5,10 @@
  */
 package com.wrm.draftstore.servlets;
 
+import com.wrm.draftstore.database.ConexaoBDJavaDB;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +19,22 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ramon.ahonorio
  */
-@WebServlet(name = "CadastrarProdutosServlet", urlPatterns = {"/CadastrarProdutosServlet"})
-public class CadastrarProdutosServlet extends HttpServlet {
+@WebServlet(name = "CadastrarFornecedorServlet", urlPatterns = {"/CadastrarFornecedorServlet"})
+public class CadastrarFornecedorServlet extends HttpServlet {
 
+    public void cadastrarFornecedor(){
+        ConexaoBDJavaDB conexaoBD
+            = new ConexaoBDJavaDB("agendabd");
+        PreparedStatement stmt = null;
+        Connection conn = null;
+
+        String sql = "INSERT INTO TB_PESSOA " // Notar que antes de fechar aspas tem espaço em branco!
+                + "(NM_PESSOA, DT_NASCIMENTO, "
+                + "VL_TELEFONE, VL_EMAIL) VALUES "
+                + "(?, ?, ?, ?)";
+        
+    }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,6 +47,8 @@ public class CadastrarProdutosServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        
         
     }
 
