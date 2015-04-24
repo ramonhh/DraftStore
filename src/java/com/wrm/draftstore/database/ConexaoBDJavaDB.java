@@ -34,8 +34,8 @@ public class ConexaoBDJavaDB extends ConexaoBD {
   @Override
   protected String[] getCredenciaisAcesso() {
     String[] credenciais = new String[2];
-    credenciais[0] = "app"; // Nome do usuario do BD
-    credenciais[1] = "app"; // Senha do BD
+    credenciais[0] = "adm"; // Nome do usuario do BD
+    credenciais[1] = "adm"; // Senha do BD
     return credenciais;
   }
 }

@@ -1,3 +1,12 @@
+<%-- 
+    Document   : cadastrarFornecedores
+    Created on : 23/04/2015, 21:24:58
+    Author     : ramon.ahonorio
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 ﻿<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +17,7 @@
     <title>WRM - Sistema de Gerenciamento</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,11 +25,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="estilos.css" type="text/css" rel="stylesheet">
+    <link href="resources/css/estilos.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <header>
-      <img id="logo" src="wrm-logoteste.png">
+      <img id="logo" src="resources/img/wrm-logoteste.png">
       <div class="texto" id="titulo"><h1>Cadastrar Fornecedores</h1></div>
     </header>
     <div class="row">
@@ -52,7 +61,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Funcionários <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li><a href="buscarFuncionario.html">Buscar</a></li>
-                    <li><a href="cadastrarFuncionario.html">Cadastrar</a></li>
+                    <li><a href="cadastrarFuncionarios.html">Cadastrar</a></li>
                     
                   </ul>
                 </li>
@@ -74,53 +83,57 @@
         <!-- ********************** Inserir o conteudo aqui! ********************** -->
 
         <div class="form">
-          <form name="cadastrarProduto" method="GET">
+            <form action="CadastrarFornecedorServlet" method="POST" 
+                    accept-charset="UTF-8"
+                    enctype="application/x-www-form-urlencoded"
+                    name="cadastrarProduto">
 			<p>
 				<label> Razão Social </label>
-				<input type="text" class="inputRazao">
+				<input type="text" class="inputRazao" name="razaoSocial">
 			</p>
 				<p class="comboBox">
 				<label> CNPJ </label>
-				<input type="text" class="inputsFornecedor">
+				<input type="text" class="inputsFornecedor" name="cnpj">
 			</p>
 				<p class="comboBox">
-				<label class="labelFornecedor"> CEP </label>
+				<label class="labelFornecedor" name="fornecedor"> CEP </label>
 				<input type="text" class="inputFornecedor">
 			</p>
 			<p>
 				<label> Endereço </label>
-				<input type="text" class="inputRazao">
+				<input type="text" class="inputRazao" name="endereco">
 			</p>
 				<p class="comboBox">
 				<label> Bairro </label>
-				<input type="text" class="inputsFornecedor">
+				<input type="text" class="inputsFornecedor" name="bairro">
 			</p>
 			<p class="comboBox">
 				<label class="labelFornecedor"> Número </label>
-				<input type="text" class="inputFornecedor">
+				<input type="text" class="inputFornecedor" name="numero">
 			</p>
 			<p class="comboBox">
 				<label>Cidade</label>
-				<input type="text" class="inputsFornecedor">
+				<input type="text" class="inputsFornecedor" name="cidade">
 			</p>
 			<p class="comboBox">
 				<label class="labelFornecedor"> UF </label>
-				<input type="text" class="inputFornecedor">
+				<input type="text" class="inputFornecedor" name="uf">
 			</p>
 				<p>
 				<label> Telefone </label>
-				<input type="text" class="inputRazao">
+				<input type="text" class="inputRazao" name="telefone">
 			</p>
 				<label> Email </label>
-				<input type="text" class="inputRazao">
+				<input type="text" class="inputRazao" name="email">
 			</p>
 				<label> Site </label>
-				<input type="text" class="inputRazao">
+				<input type="text" class="inputRazao" name="site">
 			</p>
           <div class="botoesFormulario">
             <button type="button" class="btn btn-danger">Cancelar</button>
             <button type="submit" class="btn btn-default">Cadastrar</button>
           </div>
+          </form>
       </div>
     </div>
 

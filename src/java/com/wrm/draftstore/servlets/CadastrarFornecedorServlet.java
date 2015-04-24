@@ -5,10 +5,14 @@
  */
 package com.wrm.draftstore.servlets;
 
+import com.wrm.draftstore.classes.Fornecedor;
 import com.wrm.draftstore.database.ConexaoBDJavaDB;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,17 +26,56 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CadastrarFornecedorServlet", urlPatterns = {"/CadastrarFornecedorServlet"})
 public class CadastrarFornecedorServlet extends HttpServlet {
 
-    public void cadastrarFornecedor(){
+    public void cadastrarFornecedor(Fornecedor f){
         ConexaoBDJavaDB conexaoBD
-            = new ConexaoBDJavaDB("agendabd");
+            = new ConexaoBDJavaDB("draftstoredb");
         PreparedStatement stmt = null;
         Connection conn = null;
-
-        String sql = "INSERT INTO TB_PESSOA " // Notar que antes de fechar aspas tem espaço em branco!
-                + "(NM_PESSOA, DT_NASCIMENTO, "
-                + "VL_TELEFONE, VL_EMAIL) VALUES "
-                + "(?, ?, ?, ?)";
         
+        String sql = "INSERT INTO TB_FORNEC " // Notar que antes de fechar aspas tem espaço em branco!
+                + "(RAZAO_SOCIAL, CNPJ, CEP, ENDERECO, BAIRRO, NUMERO, CIDADE, ESTADO, TELEFONE, EMAIL, SITE) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+        conn = conexaoBD.obterConexao();
+        stmt = conn.prepareStatement(sql);
+        
+            System.out.println(f.getNumero());
+        
+        stmt.setString(1, f.getRazaoSocial());
+        stmt.setInt(2, 231231);
+        stmt.setInt(3, 3121231);
+        stmt.setString(4, f.getEndereco());
+        stmt.setString(5, f.getBairro());
+        stmt.setInt(6, f.getNumero());
+        stmt.setString(7, f.getCidade());
+        stmt.setString(8, f.getEstado());
+        stmt.setString(9, f.getTelefone());
+        stmt.setString(10, f.getEmail());
+        stmt.setString(11, f.getSite());
+        
+        stmt.executeUpdate();
+        
+        System.out.println("Registro incluido com sucesso.");
+
+      } catch (SQLException | ClassNotFoundException ex) {
+        Logger.getLogger(CadastrarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("-> " + ex.getMessage());
+      } finally {
+        if (stmt != null) {
+          try {
+            stmt.close();
+          } catch (SQLException ex) {
+            Logger.getLogger(CadastrarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        }
+        if (conn != null) {
+          try {
+            conn.close();
+          } catch (SQLException ex) {
+            Logger.getLogger(CadastrarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        }
+      }
     }
     
     /**
@@ -48,7 +91,30 @@ public class CadastrarFornecedorServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+//        String nome = request.getParameter("nomeXpto");
+//        String dtNascStr = request.getParameter("dtNascXpto");
+//        String telefone = request.getParameter("telefoneXpto");
+//        String email = request.getParameter("emailXpto");
+//        Pessoa p = new Pessoa();
         
+        String razaoSocial = request.getParameter("razaoSocial");
+        String cnpj = request.getParameter("cnpj");
+        String cep = request.getParameter("cep");
+        String endereco = request.getParameter("endereco");
+        String bairro = request.getParameter("bairro");
+        String cidade = request.getParameter("cidade");
+        String estado = request.getParameter("uf");
+        String telefone = request.getParameter("telefone");
+        String email = request.getParameter("email");
+        String site = request.getParameter("site");
+        String numero = request.getParameter("numero");
+        
+        Fornecedor f = new Fornecedor(razaoSocial, cnpj, cep, endereco, bairro, 
+                cidade, estado, telefone, email, site, Integer.parseInt(numero));
+        
+        cadastrarFornecedor(f);
+        
+        response.sendRedirect("resultado.jsp");
         
     }
 
