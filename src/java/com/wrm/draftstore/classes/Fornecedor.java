@@ -134,6 +134,10 @@ public class Fornecedor {
         this.numero = numero;
     }
 
+    public Fornecedor() {
+    }
+
+    
     
     
 
