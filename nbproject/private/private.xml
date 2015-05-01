@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/ramonhonorio/Documents/TADS/Projeto%20Integrador%20III/DraftStore/nbproject/build-impl.xml</file>
-            <file>file:/Users/ramonhonorio/Documents/TADS/Projeto%20Integrador%20III/DraftStore/src/java/com/wrm/draftstore/classes/Fornecedor.java</file>
             <file>file:/Users/ramonhonorio/Documents/TADS/Projeto%20Integrador%20III/DraftStore/src/java/com/wrm/draftstore/servlets/CadastrarFornecedorServlet.java</file>
-            <file>file:/Users/ramonhonorio/Documents/TADS/Projeto%20Integrador%20III/DraftStore/web/buscarFornecedor.jsp</file>
-            <file>file:/Users/ramonhonorio/Documents/TADS/Projeto%20Integrador%20III/DraftStore/src/java/com/wrm/draftstore/servlets/BuscarFornecedor.java</file>
         </group>
     </open-files>
 </project-private>

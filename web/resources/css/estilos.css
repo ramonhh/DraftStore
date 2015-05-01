@@ -7,7 +7,7 @@
   .sidebar-nav .navbar ul {
     float: none;
   }
-  .sidebar-nav .navbar ul {
+  .sidebar-nav .navbar ul :not {
     display: block;
   }
   .sidebar-nav .navbar li {

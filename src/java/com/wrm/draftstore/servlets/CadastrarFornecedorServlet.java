@@ -90,12 +90,7 @@ public class CadastrarFornecedorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-//        String nome = request.getParameter("nomeXpto");
-//        String dtNascStr = request.getParameter("dtNascXpto");
-//        String telefone = request.getParameter("telefoneXpto");
-//        String email = request.getParameter("emailXpto");
-//        Pessoa p = new Pessoa();
+        request.setCharacterEncoding("UTF-8");
         
         String razaoSocial = request.getParameter("razaoSocial");
         String cnpj = request.getParameter("cnpj");
@@ -130,7 +125,7 @@ public class CadastrarFornecedorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.sendRedirect("cadastrarFornecedores.jsp");
     }
 
     /**
