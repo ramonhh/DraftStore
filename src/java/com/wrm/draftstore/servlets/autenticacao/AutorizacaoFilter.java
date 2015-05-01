@@ -23,9 +23,10 @@ import com.wrm.draftstore.classes.*;
  *
  * @author fernando.tsuda
  */
-@WebFilter(filterName = "AutorizacaoFilter", urlPatterns = "*Servlet")
+@WebFilter(filterName = "AutorizacaoFilter", 
+            servletNames = {"CadastrarFornecedorServlet", "CadastrarProdutorServlet", "BuscarFornecedorServlet"})
 public class AutorizacaoFilter implements Filter {
-
+    
   @Override
   public void doFilter(ServletRequest request, ServletResponse response,
           FilterChain chain)
@@ -52,7 +53,7 @@ public class AutorizacaoFilter implements Filter {
       // 3) VERIFICAR SE USUARIO PODE ACESSAR PAGINA
       if (verificarAcesso(usuario, httpRequest, httpResponse)) {
         // CHAMADA QUE ENVIA A REQUISIÇÃO PARA O PRÓXIMO FILTRO OU SERVLET
-        chain.doFilter(request, response);
+            chain.doFilter(request, response);
       } else {
         // SE NAO PODER ACESSAR, APRESENTA ERRO
         httpResponse.sendRedirect("erroNaoAutorizado.jsp");
@@ -66,7 +67,7 @@ public class AutorizacaoFilter implements Filter {
     String pagina = req.getRequestURI();
     if (pagina.endsWith("BuscarFornecedorServlet") && usuario.autorizado("BASICO")) {
       return true;
-    } else if (pagina.endsWith("CadastrarFornecedorServlet") && usuario.autorizado("ADMIN")) {
+    } else if (usuario.autorizado("ADMIN")) {
       return true;
     }
     return false;

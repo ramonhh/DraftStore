@@ -34,11 +34,7 @@ public class Usuario {
   }
 
   public Usuario(String nome, String senha, String[] papeis) {
-      init(nome, senha, papeis);
-  }
-  
-  public void init(String nome, String senha, String[] papeis){
-    this.login = nome;
+      this.login = nome;
     try {
       this.hashSenha = gerarHashSenhaPBKDF2(senha);
     } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {

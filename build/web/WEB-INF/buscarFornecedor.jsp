@@ -74,10 +74,10 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="buscarProduto.html">Buscar </a>
+                      <a href="BuscarProdutoServlet">Buscar </a>
                     </li>
                     <li>
-                      <a href="cadastrarProdutos.html">Cadastrar</a>
+                      <a href="CadastrarProdutoServlet">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -85,22 +85,22 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Funcionários <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                     <a href="buscarFuncionario.html">Buscar </a>
+                     <a href="BuscarFuncionarioServlet">Buscar </a>
                     </li>
                     <li>
-                      <a href="cadastrarFuncionarios.html">Cadastrar</a>
+                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
                     </li>
-                    
+
                   </ul>
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fornecedores <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="buscarFornecedor.html">Buscar </a>
+                      <a href="BuscarFornecedorServlet">Buscar </a>
                     </li>
                     <li>
-                      <a href="cadastrarFornecedores.html">Cadastrar</a>
+                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -130,8 +130,8 @@
           	<caption>Fornecedores</caption>
           	<thead>
               <tr>
-                <th>Razão Social</th>
-                <th>CNPJ</th>
+                <th>Nome</th>
+                <th>Distribuidora</th>
               </tr>
           	</thead>
           	<tbody>
@@ -155,7 +155,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="resources/js/selecionarBusca.js"></script>
+	<script src="resources/js/selecionarBusca.js"></script>
   </body>
 
 </html>

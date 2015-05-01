@@ -1,4 +1,4 @@
-/* make sidebar nav vertical */ 
+/* make sidebar nav vertical */
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
@@ -7,7 +7,7 @@
   .sidebar-nav .navbar ul {
     float: none;
   }
-  .sidebar-nav .navbar ul :not {
+  .sidebar-nav .navbar ul:not {
     display: block;
   }
   .sidebar-nav .navbar li {
@@ -47,11 +47,12 @@ li {
 }
 
 label {
-    float: center;
-    width: 40%;
+	float: center;
+	width: 40%;
 }
 input{
-    float: center;
+	float: center;
+
 }
 
 select{
@@ -70,13 +71,9 @@ tbody tr:hover {
     background-color: #1E90FF;
 }
 
-p {
-    width: 400px;
-}
-
 .comboBox{
-    display: inline-block;
-    
+	display: inline-block;
+	width: 400px;
 }
 
 .textField.number {
@@ -137,75 +134,4 @@ p {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	width: 400px;
-} 
-/* Parte de Cadastro de produto */
-input[type="text"]{
-    width: 40%;	
-}
-input[type="number"]{
-	width: 18%;
-	position: relative;
-	right: 44%;
-}
-.textField.number {
-	width: 50%;
-	margin-left: 25px;
-}
-.number {
-	float:left;
-	width: 120%;
-}
-
-.textField.custo {
-	width: 40%;
-	float: left;
-}
-.inpus{
-	position: absolute;
-	right: 50%;
-}
-.inputCusto{
-	position: relative;
-	right: 38%;
-}
-.inputPrevisto{
-	position: absolute;
-	right: 43%;
-}
-.lucro{
-	position: relative;
-	right: 30%;
-}
-.forneLabel{
-	position: relative;
-	right: 20%;
-}
-.selectFornece{
-	position: relative;
-	right: 30%;
-}
-.botoesFormulario{
-	position: absolute;
-	top: 120%;	
-}
-/* Parte de Cadastro de Fornecedor */
-.inputRazao{
-	position: absolute;
-	right: 46%;
-}
-.inputEndereco{
-	position: absolute;
-	right: 49%;
-}
-.inputsFornecedor{
-	position: relative;
-	right: 7%;
-}
-.labelFornecedor{
-	position: relative;
-	right: 24%;
-}
-.inputFornecedor{
-	position: relative;
-	right: 38%;
 }

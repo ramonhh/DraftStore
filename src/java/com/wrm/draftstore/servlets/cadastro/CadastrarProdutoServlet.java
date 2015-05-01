@@ -6,6 +6,7 @@
 package com.wrm.draftstore.servlets.cadastro;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ramon.ahonorio
  */
-@WebServlet(name = "CadastrarProdutosServlet", urlPatterns = {"/CadastrarProdutosServlet"})
-public class CadastrarProdutosServlet extends HttpServlet {
+@WebServlet(name = "CadastrarProdutoServlet", urlPatterns = {"/CadastrarProdutoServlet"})
+public class CadastrarProdutoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,6 +48,9 @@ public class CadastrarProdutosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/cadastrarProduto.jsp");
+        rd.forward(request, response);
     }
 
     /**

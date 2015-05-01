@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 1, 2015, 7:28:00 PM
+    Author     : ramonhonorio
+*/
+
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+#logo {
+	display: inline-block;
+	margin-bottom: 30px;
+	margin-left: 2%;
+}
+
+#titulo {
+	margin-top: 1%;
+	margin-left: 80px;
+	display: inline-block;
+}
+
+body {
+	font-size: 20px;
+	width: auto;
+	height: auto;
+}
+
+h1 {
+	font-size: 64px;
+	margin-top: 20px;
+}
+/* Cadastro de Fornecedor */
+label{
+  width: 150px;
+}
+.labelFornecedor{
+  position: relative;
+  width: 150px;
+}
+.quebra{
+  display:inline-block;
+}
+/* Cadastro de Produto */
+
+.lbProduto{
+  width: 200px;
+}
+#tp{
+  width: 247px;
+}
+.outros{
+  width:150px;
+
+}

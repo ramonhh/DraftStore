@@ -1,6 +1,16 @@
-﻿<!DOCTYPE html>
+<%-- 
+    Document   : cadastrarProdutos
+    Created on : 16/04/2015, 20:11:40
+    Author     : ramon.ahonorio
+--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+♪﻿<!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,25 +21,25 @@
       WRM - Sistema de Gerenciamento
     </title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media
     queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://
     -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js">
-            			            
+
       </script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
-            			            
+
       </script>
     <![endif]-->
-    <link href="posicionamento.css" type="text/css" rel="stylesheet">
+     <link href="resources/css/estilos.css" type="text/css" rel="stylesheet">
   </head>
-  
+
   <body>
     <header>
-      <img id="logo" src="wrm-logoteste.png">
+      <img id="logo" src="resources/img/wrm-logoteste.png">
       <div class="texto" id="titulo">
         <h1>
           Buscar Produto
@@ -61,17 +71,14 @@
                 <li>
                   <a href="#">Registro de vendas</a>
                 </li>
-                <li class="active dropdown">
+                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="#">Buscar</a>
+                      <a href="BuscarProdutoServlet">Buscar </a>
                     </li>
                     <li>
-                      <a href="#">Cadastrar</a>
-                    </li>
-                    <li>
-                      <a href="#">Gerenciar</a>
+                      <a href="CadastrarProdutoServlet">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -79,27 +86,22 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Funcionários <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="#">Buscar</a>
+                     <a href="BuscarFuncionarioServlet">Buscar </a>
                     </li>
                     <li>
-                      <a href="#">Cadastrar</a>
+                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
                     </li>
-                    <li>
-                      <a href="#">Gerenciar</a>
-                    </li>
+
                   </ul>
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fornecedores <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="#">Buscar</a>
+                      <a href="BuscarFornecedorServlet">Buscar </a>
                     </li>
                     <li>
-                      <a href="#">Cadastrar</a>
-                    </li>
-                    <li>
-                      <a href="#">Gerenciar</a>
+                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -126,7 +128,7 @@
         </div>
         <br>
       	<div class="tabela">
-        	<table class="table table-hover">
+        	<table class="table table">
           	<caption>Produtos</caption>
           	<thead>
               <tr>
@@ -135,11 +137,12 @@
               </tr>
           	</thead>
           	<tbody>
-              <tr>
+              <tr class="">
                 <td>Intel Core I5</td>
                 <td>Intel do Brasil</td>
+
               </tr>
-            	<tr>
+            	<tr class="">
             		<td> Placa Mãe Asus 201A </td>
             		<td> Asus </td>
               </tr>
@@ -152,11 +155,12 @@
         	<button class="btn btn-small btn-primary" type="button">Editar</button>
         	<button class="btn btn-small" type="button">Remover</button>
       	</p>
-  	</div>	
+  	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="resources/js/selecionarBusca.js"></script>
   </body>
 
 </html>
