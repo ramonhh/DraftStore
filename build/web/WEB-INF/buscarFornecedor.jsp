@@ -130,8 +130,8 @@
           	<caption>Fornecedores</caption>
           	<thead>
               <tr>
-                <th>Nome</th>
-                <th>Distribuidora</th>
+                <th>Razão Social</th>
+                <th>CNPJ</th>
               </tr>
           	</thead>
           	<tbody>
@@ -141,10 +141,6 @@
                             <td><c:out value="${fornec.cnpj}"/></td>
                         </tr>
                     </c:forEach>
-                    <tr class="">
-                      <td>Intel do Brasil</td>
-                      <td>ASJ <c:out value="${lista[0]}"/></td>
-                    </tr>
           	</tbody>
         	</table>
       	</div>

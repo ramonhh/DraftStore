@@ -91,11 +91,11 @@
 				<label> Razão Social </label>
 				<input type="text" class="inputRazao" name="razaoSocial">
 			</p>
-				<p class="comboBox">
+			<p class="comboBox">
 				<label> CNPJ </label>
 				<input type="text" class="inputsFornecedor" name="cnpj">
 			</p>
-				<p class="comboBox">
+			<p class="comboBox">
 				<label class="labelFornecedor" name="fornecedor"> CEP </label>
 				<input type="text" class="inputFornecedor">
 			</p>
@@ -103,7 +103,7 @@
 				<label> Endereço </label>
 				<input type="text" class="inputRazao" name="endereco">
 			</p>
-				<p class="comboBox">
+			<p class="comboBox">
 				<label> Bairro </label>
 				<input type="text" class="inputsFornecedor" name="bairro">
 			</p>
@@ -140,6 +140,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html> 

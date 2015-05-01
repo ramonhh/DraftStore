@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wrm.draftstore.servlets;
+package com.wrm.draftstore.servlets.busca;
 
 import com.wrm.draftstore.classes.Fornecedor;
 import com.wrm.draftstore.database.ConexaoBDJavaDB;
@@ -29,9 +29,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fernando.tsuda
  */
-@WebServlet(name = "BuscarFornecedor", 
-        urlPatterns = {"/BuscarFornecedor"})
-public class BuscarFornecedor extends HttpServlet {
+@WebServlet(name = "BuscarFornecedorServlet", 
+        urlPatterns = {"/BuscarFornecedorServlet"})
+public class BuscarFornecedorServlet extends HttpServlet {
 
   public List<Fornecedor> listarFornecedores() {
     ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
@@ -44,7 +44,7 @@ public class BuscarFornecedor extends HttpServlet {
       stmt = conn.createStatement();
       ResultSet resultados = stmt.executeQuery(sql);
       
-      List<Fornecedor> lista = new ArrayList<Fornecedor>();
+      List<Fornecedor> lista = new ArrayList<>();
 
       while (resultados.next()) {
           Fornecedor f = new Fornecedor();
@@ -53,26 +53,23 @@ public class BuscarFornecedor extends HttpServlet {
           lista.add(f);
       }
       
-     
      return lista;
 
-    } catch (SQLException ex) {
-      Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (SQLException | ClassNotFoundException ex) {
+      Logger.getLogger(BuscarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
     } finally {
       if (stmt != null) {
         try {
           stmt.close();
         } catch (SQLException ex) {
-          Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(BuscarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
       if (conn != null) {
         try {
           conn.close();
         } catch (SQLException ex) {
-          Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(BuscarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
     }
@@ -101,7 +98,7 @@ public class BuscarFornecedor extends HttpServlet {
 
         request.setAttribute("lista", listarFornecedores());
         
-        RequestDispatcher rd = request.getRequestDispatcher("buscarFornecedor.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/buscarFornecedor.jsp");
         rd.forward(request, response);
     }
     /**

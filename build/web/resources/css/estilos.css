@@ -47,12 +47,11 @@ li {
 }
 
 label {
-	float: center;
-	width: 40%;
+    float: center;
+    width: 40%;
 }
 input{
-	float: center;
-
+    float: center;
 }
 
 select{
@@ -70,9 +69,14 @@ tbody tr:hover {
     color: #DCDCDC;
     background-color: #1E90FF;
 }
+
+p {
+    width: 400px;
+}
+
 .comboBox{
-	display: inline-block;
-	width: 400px;
+    display: inline-block;
+    
 }
 
 .textField.number {
@@ -136,7 +140,7 @@ tbody tr:hover {
 } 
 /* Parte de Cadastro de produto */
 input[type="text"]{
-	width: 40%;	
+    width: 40%;	
 }
 input[type="number"]{
 	width: 18%;

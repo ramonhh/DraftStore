@@ -11,6 +11,7 @@ package com.wrm.draftstore.classes;
  */
 public class Fornecedor {
     
+    // Propriedades
     private String idFornecedor;
     private String razaoSocial;
     private String cnpj;
@@ -24,10 +25,10 @@ public class Fornecedor {
     private String site;
     private int numero;
 
+    // Metodos acessores
     public String getIdFornecedor() {
         return idFornecedor;
     }
-
     public void setIdFornecedor(String idFornecedor) {
         this.idFornecedor = idFornecedor;
     }
@@ -35,7 +36,6 @@ public class Fornecedor {
     public String getRazaoSocial() {
         return razaoSocial;
     }
-
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
     }
@@ -43,7 +43,6 @@ public class Fornecedor {
     public String getCnpj() {
         return cnpj;
     }
-
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
@@ -51,7 +50,6 @@ public class Fornecedor {
     public String getCep() {
         return cep;
     }
-
     public void setCep(String cep) {
         this.cep = cep;
     }
@@ -59,7 +57,6 @@ public class Fornecedor {
     public String getEndereco() {
         return endereco;
     }
-
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
@@ -67,7 +64,6 @@ public class Fornecedor {
     public String getBairro() {
         return bairro;
     }
-
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
@@ -75,7 +71,6 @@ public class Fornecedor {
     public String getCidade() {
         return cidade;
     }
-
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
@@ -83,7 +78,6 @@ public class Fornecedor {
     public String getEstado() {
         return estado;
     }
-
     public void setEstado(String estado) {
         this.estado = estado;
     }
@@ -91,7 +85,6 @@ public class Fornecedor {
     public String getTelefone() {
         return telefone;
     }
-
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
@@ -99,7 +92,6 @@ public class Fornecedor {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -107,7 +99,6 @@ public class Fornecedor {
     public String getSite() {
         return site;
     }
-
     public void setSite(String site) {
         this.site = site;
     }
@@ -115,11 +106,11 @@ public class Fornecedor {
     public int getNumero() {
         return numero;
     }
-
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
+    // Construtores
     public Fornecedor(String razaoSocial, String cnpj, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, String site, int numero) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
@@ -136,9 +127,5 @@ public class Fornecedor {
 
     public Fornecedor() {
     }
-
-    
-    
-    
 
 }

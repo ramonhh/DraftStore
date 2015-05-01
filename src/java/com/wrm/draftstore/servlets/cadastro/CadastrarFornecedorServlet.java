@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wrm.draftstore.servlets;
+package com.wrm.draftstore.servlets.cadastro;
 
 import com.wrm.draftstore.classes.Fornecedor;
 import com.wrm.draftstore.database.ConexaoBDJavaDB;
@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -125,7 +126,9 @@ public class CadastrarFornecedorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("cadastrarFornecedores.jsp");
+        
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/cadastrarFornecedor.jsp");
+        rd.forward(request, response);
     }
 
     /**
