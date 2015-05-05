@@ -23,7 +23,7 @@ public class Fornecedor {
     private String telefone;
     private String email;
     private String site;
-    private int numero;
+    private String numero;
 
     // Metodos acessores
     public String getIdFornecedor() {
@@ -38,20 +38,6 @@ public class Fornecedor {
     }
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
-    }
-    
-    public String getCnpj() {
-        return cnpj;
-    }
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-    public void setCep(String cep) {
-        this.cep = cep;
     }
 
     public String getEndereco() {
@@ -103,15 +89,32 @@ public class Fornecedor {
         this.site = site;
     }
 
-    public int getNumero() {
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getNumero() {
         return numero;
     }
-    public void setNumero(int numero) {
+
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
     // Construtores
-    public Fornecedor(String razaoSocial, String cnpj, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, String site, int numero) {
+    public Fornecedor(String razaoSocial, String cnpj, String cep, String endereco, String bairro, String cidade, String estado, String telefone, String email, String site, String numero) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
         this.cep = cep;

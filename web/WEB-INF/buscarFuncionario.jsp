@@ -21,7 +21,7 @@
       WRM - Sistema de Gerenciamento
     </title>
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media
     queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://
@@ -34,12 +34,12 @@
             			            
       </script>
     <![endif]-->
-    <link href="resources/css/estilos.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/estilos.css" type="text/css" rel="stylesheet">
   </head>
   
   <body>
     <header>
-      <img id="logo" src="resources/img/wrm-logoteste.png">
+      <img id="logo" src="../resources/img/wrm-logoteste.png">
       <div class="texto" id="titulo">
         <h1>
           Buscar Funcionário
@@ -75,10 +75,10 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="BuscarProdutoServlet">Buscar </a>
+                      <a href="BuscarProduto">Buscar </a>
                     </li>
                     <li>
-                      <a href="CadastrarProdutoServlet">Cadastrar</a>
+                      <a href="CadastrarProduto">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -86,10 +86,10 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Funcionários <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                     <a href="BuscarFuncionarioServlet">Buscar </a>
+                     <a href="BuscarFuncionario">Buscar </a>
                     </li>
                     <li>
-                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
+                      <a href="CadastrarFuncionario">Cadastrar</a>
                     </li>
 
                   </ul>
@@ -98,10 +98,10 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fornecedores <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="BuscarFornecedorServlet">Buscar </a>
+                      <a href="BuscarFornecedor">Buscar </a>
                     </li>
                     <li>
-                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
+                      <a href="CadastrarFornecedor">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -154,8 +154,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="resources/js/selecionarBusca.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../resources/js/selecionarBusca.js"></script>
   </body>
 
 </html>

@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
       }
       sessao = request.getSession(true);
       sessao.setAttribute("usuario", usuario);
-      response.sendRedirect("BuscarFornecedorServlet");
+      response.sendRedirect("Servlet/BuscarFornecedor");
       return;
       // FIM CASO SUCESSO
     }

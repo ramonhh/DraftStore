@@ -23,8 +23,7 @@ import com.wrm.draftstore.classes.*;
  *
  * @author fernando.tsuda
  */
-@WebFilter(filterName = "AutorizacaoFilter", 
-            servletNames = {"CadastrarFornecedorServlet", "CadastrarProdutorServlet", "BuscarFornecedorServlet"})
+@WebFilter(filterName = "AutorizacaoFilter", urlPatterns = "/Servlet/*")
 public class AutorizacaoFilter implements Filter {
     
   @Override
@@ -45,7 +44,7 @@ public class AutorizacaoFilter implements Filter {
     //    QUE USUÁRIO ESTÁ LOGADO
     //    CASO CONTRÁRIO, REDIRECIONA PARA TELA DE LOGIN
     if (usuario == null) {
-      httpResponse.sendRedirect("login.jsp");
+      httpResponse.sendRedirect("../login.jsp");
       return;
     }
 
@@ -65,7 +64,7 @@ public class AutorizacaoFilter implements Filter {
 
   private boolean verificarAcesso(Usuario usuario, HttpServletRequest req, HttpServletResponse resp) {
     String pagina = req.getRequestURI();
-    if (pagina.endsWith("BuscarFornecedorServlet") && usuario.autorizado("BASICO")) {
+    if (pagina.endsWith("BuscarFornecedor") && usuario.autorizado("BASICO")) {
       return true;
     } else if (usuario.autorizado("ADMIN")) {
       return true;

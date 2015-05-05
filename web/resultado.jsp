@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Contato incluido com sucesso</h1>
-        <a href="cadastrarFornecedores.jsp">Voltar</a>
+        <a href="Servlet/BuscarFornecedor">Voltar</a>
     </body>
 </html>

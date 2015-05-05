@@ -24,8 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ramon.ahonorio
  */
-@WebServlet(name = "CadastrarFuncionarioServlet", urlPatterns = {"/CadastrarFuncionarioServlet"})
-public class CadastrarFuncionarioServlet extends HttpServlet {
+@WebServlet(name = "CadastrarFuncionario", urlPatterns = {"/Servlet/CadastrarFuncionario"})
+public class CadastrarFuncionario extends HttpServlet {
 
     public void cadastrarFornecedor(Fornecedor f){
         ConexaoBDJavaDB conexaoBD
@@ -33,21 +33,21 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "INSERT INTO TB_FORNEC " // Notar que antes de fechar aspas tem espaço em branco!
+        String sql = "INSERT INTO TB_FORNECEDOR " // Notar que antes de fechar aspas tem espaço em branco!
                 + "(RAZAO_SOCIAL, CNPJ, CEP, ENDERECO, BAIRRO, NUMERO, CIDADE, ESTADO, TELEFONE, EMAIL, SITE) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
         conn = conexaoBD.obterConexao();
         stmt = conn.prepareStatement(sql);
         
-            System.out.println(f.getNumero());
+           System.out.println(f.getNumero());
         
         stmt.setString(1, f.getRazaoSocial());
-        stmt.setInt(2, 231231);
-        stmt.setInt(3, 3121231);
+        stmt.setString(2, f.getCnpj());
+        stmt.setString(3, f.getCep());
         stmt.setString(4, f.getEndereco());
         stmt.setString(5, f.getBairro());
-        stmt.setInt(6, f.getNumero());
+        stmt.setString(6, f.getNumero());
         stmt.setString(7, f.getCidade());
         stmt.setString(8, f.getEstado());
         stmt.setString(9, f.getTelefone());
@@ -59,21 +59,21 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         System.out.println("Registro incluido com sucesso.");
 
       } catch (SQLException | ClassNotFoundException ex) {
-        Logger.getLogger(CadastrarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(CadastrarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("-> " + ex.getMessage());
       } finally {
         if (stmt != null) {
           try {
             stmt.close();
           } catch (SQLException ex) {
-            Logger.getLogger(CadastrarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
           }
         }
         if (conn != null) {
           try {
             conn.close();
           } catch (SQLException ex) {
-            Logger.getLogger(CadastrarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
           }
         }
       }
@@ -106,7 +106,7 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         String numero = request.getParameter("numero");
         
         Fornecedor f = new Fornecedor(razaoSocial, cnpj, cep, endereco, bairro, 
-                cidade, estado, telefone, email, site, Integer.parseInt(numero));
+                cidade, estado, telefone, email, site, numero);
         
         cadastrarFornecedor(f);
         
@@ -127,7 +127,7 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/cadastrarFornecedor.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/cadastrarFuncionario.jsp");
         rd.forward(request, response);
     }
 

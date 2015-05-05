@@ -81,7 +81,7 @@
                       <a href="BuscarFornecedorServlet">Buscar </a>
                     </li>
                     <li>
-                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
+                      <a href="CadastrarFornecedorServlet">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -96,7 +96,11 @@
     </div>
     <div class="col-sm-9">
       <!-- ********************** Inserir o conteudo aqui! ********************** -->
-      <form class="form-inline">
+      <form class="form-inline"  
+            action="CadastrarProdutoServlet"
+            method="POST" 
+            accept-charset="UTF-8"
+            enctype="application/x-www-form-urlencoded">
       <div>
         <label class="lbProduto"> Tipo do Produto </label>
         <select name="tipoProduto" id="tp">
@@ -138,13 +142,14 @@
         <input type="text" class="inputPrevisto" placeholder="R$ 00,00 ">
       </div>
 
-
-      </form>
-
       <div class="botoesFormulario">
         <button type="button" class="btn btn-danger">Cancelar</button>
         <button type="submit" class="btn btn-default">Cadastrar</button>
       </div>
+          
+      </form>
+
+      
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

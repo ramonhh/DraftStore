@@ -27,16 +27,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fernando.tsuda
  */
-@WebServlet(name = "BuscarFornecedorServlet", 
-        urlPatterns = {"/BuscarFornecedorServlet"})
-public class BuscarFornecedorServlet extends HttpServlet {
+@WebServlet(name = "BuscarProduto", 
+        urlPatterns = {"/Servlet/BuscarProduto"})
+public class BuscarProduto extends HttpServlet {
 
   public List<Fornecedor> listarFornecedores() {
     ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
     Statement stmt = null;
     Connection conn = null;
 
-    String sql = "SELECT RAZAO_SOCIAL, CNPJ FROM TB_FORNEC";
+    String sql = "SELECT RAZAO_SOCIAL, CNPJ FROM TB_FORNECEDOR";
     try {
       conn = conexaoBD.obterConexao();
       stmt = conn.createStatement();
@@ -54,20 +54,20 @@ public class BuscarFornecedorServlet extends HttpServlet {
      return lista;
 
     } catch (SQLException | ClassNotFoundException ex) {
-      Logger.getLogger(BuscarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(BuscarProduto.class.getName()).log(Level.SEVERE, null, ex);
     } finally {
       if (stmt != null) {
         try {
           stmt.close();
         } catch (SQLException ex) {
-          Logger.getLogger(BuscarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(BuscarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
       if (conn != null) {
         try {
           conn.close();
         } catch (SQLException ex) {
-          Logger.getLogger(BuscarFornecedorServlet.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(BuscarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
     }
@@ -96,7 +96,7 @@ public class BuscarFornecedorServlet extends HttpServlet {
 
         request.setAttribute("lista", listarFornecedores());
         
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/buscarFornecedor.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/buscarProduto.jsp");
         rd.forward(request, response);
     }
     /**

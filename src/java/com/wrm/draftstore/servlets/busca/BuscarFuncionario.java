@@ -27,16 +27,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fernando.tsuda
  */
-@WebServlet(name = "BuscarFuncionarioServlet", 
-        urlPatterns = {"/BuscarFuncionarioServlet"})
-public class BuscarFuncionarioServlet extends HttpServlet {
+@WebServlet(name = "BuscarFuncionario", 
+        urlPatterns = {"/Servlet/BuscarFuncionario"})
+public class BuscarFuncionario extends HttpServlet {
 
   public List<Fornecedor> listarFornecedores() {
     ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
     Statement stmt = null;
     Connection conn = null;
 
-    String sql = "SELECT RAZAO_SOCIAL, CNPJ FROM TB_FORNEC";
+    String sql = "SELECT RAZAO_SOCIAL, CNPJ FROM TB_FORNECEDOR";
     try {
       conn = conexaoBD.obterConexao();
       stmt = conn.createStatement();
@@ -54,20 +54,20 @@ public class BuscarFuncionarioServlet extends HttpServlet {
      return lista;
 
     } catch (SQLException | ClassNotFoundException ex) {
-      Logger.getLogger(BuscarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+      Logger.getLogger(BuscarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
     } finally {
       if (stmt != null) {
         try {
           stmt.close();
         } catch (SQLException ex) {
-          Logger.getLogger(BuscarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(BuscarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
       if (conn != null) {
         try {
           conn.close();
         } catch (SQLException ex) {
-          Logger.getLogger(BuscarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(BuscarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
       }
     }
