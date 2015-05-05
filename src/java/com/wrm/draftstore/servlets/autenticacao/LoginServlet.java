@@ -15,6 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.wrm.draftstore.classes.*;
+import com.wrm.draftstore.database.ConexaoBDJavaDB;
+import com.wrm.draftstore.servlets.busca.BuscarFornecedor;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,12 +37,62 @@ public class LoginServlet extends HttpServlet {
   // OBS: Usuarios mantidos em um mapa somente como exemplo.
   // A validação deve ser feita com os dados armazenados no BD.
   private static final Map<String, Usuario> USUARIOS_CADASTRADOS;
+  
+  public static HashMap<String, Usuario> carregarUsuarios(){
+    ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
+    Statement stmt = null;
+    Connection conn = null;
+    
+    String sql = "SELECT TB_USUARIO.LOGIN, TB_USUARIO.SENHA, TB_USUARIO.NOME_FUNCIONARIO, TB_PAPEL.NOME_PAPEL\n" +
+"    FROM TB_USUARIO\n" +
+"    INNER JOIN TB_PAPEL\n" +
+"    ON TB_USUARIO.FK_PAPEL = TB_PAPEL.ID_PAPEL";
+    try {
+      conn = conexaoBD.obterConexao();
+      stmt = conn.createStatement();
+      ResultSet resultados = stmt.executeQuery(sql);
+      
+      HashMap<String, Usuario> mapa = new HashMap<>();
+
+      while (resultados.next()) {
+          Usuario user = new Usuario();
+          user.setLogin(resultados.getString("LOGIN"));
+          user.setHashSenha(resultados.getString("SENHA").toCharArray());
+          user.setNomeDoFuncionario(resultados.getString("NOME_FUNCIONARIO"));
+          user.setPapel(resultados.getString("NOME_PAPEL"));
+          
+          mapa.put(user.getLogin(), user);
+      }
+      
+     return mapa;
+
+    } catch (SQLException | ClassNotFoundException ex) {
+      Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+      if (stmt != null) {
+        try {
+          stmt.close();
+        } catch (SQLException ex) {
+          Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+      if (conn != null) {
+        try {
+          conn.close();
+        } catch (SQLException ex) {
+          Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+    }
+    return null;
+  }
 
   static {
-    USUARIOS_CADASTRADOS = new HashMap<String, Usuario>();
-    USUARIOS_CADASTRADOS.put("fulano", new Usuario("fulano", "abcd1234", new String[]{"ADMIN", "BASICO"}));
-    USUARIOS_CADASTRADOS.put("ciclano", new Usuario("ciclano", "abcd1234", new String[]{"BASICO"}));
-    USUARIOS_CADASTRADOS.put("ramonh", new Usuario("ramonh", "senac15", new String[]{"ADMIN"}));
+//    USUARIOS_CADASTRADOS = new HashMap<String, Usuario>();
+//    USUARIOS_CADASTRADOS.put("fulano", new Usuario("fulano", "abcd1234", new String[]{"ADMIN", "BASICO"}));
+//    USUARIOS_CADASTRADOS.put("ciclano", new Usuario("ciclano", "abcd1234", new String[]{"BASICO"}));
+//    USUARIOS_CADASTRADOS.put("ramonh", new Usuario("ramonh", "senac15", new String[]{"ADMIN"}));
+    USUARIOS_CADASTRADOS = carregarUsuarios();
   }
 
   /**
@@ -58,6 +119,8 @@ public class LoginServlet extends HttpServlet {
       }
       sessao = request.getSession(true);
       sessao.setAttribute("usuario", usuario);
+      
+      // Redireciona para a a tela principal
       response.sendRedirect("Servlet/BuscarFornecedor");
       return;
       // FIM CASO SUCESSO

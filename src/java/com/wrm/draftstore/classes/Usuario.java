@@ -31,6 +31,7 @@ public class Usuario {
   private String[] papeis;
 
   public Usuario() {
+    papeis = new String[2];
   }
 
   public Usuario(String nome, String senha, String[] papeis) {
@@ -65,6 +66,14 @@ public class Usuario {
 
   public void setPapeis(String[] papeis) {
     this.papeis = papeis;
+  }
+  
+  public String getPapel(){
+    return papeis[0];
+  }
+  
+  public void setPapel(String papel){
+    this.papeis[0] = papel;
   }
 
     public String getNomeDoFuncionario() {
@@ -148,7 +157,9 @@ public class Usuario {
   public boolean autenticar(String nome, String senha) {
     if (this.login != null) {
       try {
-        return this.login.equals(nome) && Arrays.equals(this.hashSenha, gerarHashSenhaPBKDF2(senha));
+        char[] novaSenha = gerarHashSenhaPBKDF2(senha);
+        boolean b = this.login.equals(nome) && Arrays.equals(this.hashSenha, novaSenha);
+        return b;
       } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
         Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
       }
