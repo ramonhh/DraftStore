@@ -25,7 +25,12 @@ import com.wrm.draftstore.classes.*;
  */
 @WebFilter(filterName = "AutorizacaoFilter", urlPatterns = "/Servlet/*")
 public class AutorizacaoFilter implements Filter {
-    
+  
+  // Listagem das paginas validas para cada tipo de usuario
+  static String[] listaPaginasVendas = {"BuscarProduto", "CadastrarProduto"};
+  static String[] listaPaginasRetaguarda = {"BuscarFornecedor", "CadastrarFornecedor"};
+  static String[] listaPaginasSuporte = {"BuscarFuncionario", "CadastrarFuncionario"};
+  
   @Override
   public void doFilter(ServletRequest request, ServletResponse response,
           FilterChain chain)
@@ -55,19 +60,31 @@ public class AutorizacaoFilter implements Filter {
             chain.doFilter(request, response);
       } else {
         // SE NAO PODER ACESSAR, APRESENTA ERRO
-        httpResponse.sendRedirect("erroNaoAutorizado.jsp");
+        httpResponse.sendRedirect("../erroNaoAutorizado.jsp");
       }
-    } catch (Throwable t) {
+    } catch (IOException | ServletException t) {
       t.printStackTrace();
     }
   }
 
   private boolean verificarAcesso(Usuario usuario, HttpServletRequest req, HttpServletResponse resp) {
     String pagina = req.getRequestURI();
-    if (pagina.endsWith("BuscarFornecedor") && usuario.autorizado("BASICO")) {
+    if (checarPaginaAtual(pagina, listaPaginasRetaguarda) && usuario.autorizado("RETAGUARDA")){
+      return true;
+    } else if (checarPaginaAtual(pagina, listaPaginasSuporte) && usuario.autorizado("SUPORTE")) {
+      return true;
+    } else if (checarPaginaAtual(pagina, listaPaginasVendas) && usuario.autorizado("VENDAS")) {
       return true;
     } else if (usuario.autorizado("ADMIN")) {
       return true;
+    }
+    return false;
+  }
+  
+  private boolean checarPaginaAtual(String pagina, String[] listaPaginasValidas){
+    for (String p : listaPaginasValidas) {
+      if(pagina.endsWith(p))
+        return true;
     }
     return false;
   }

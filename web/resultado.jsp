@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Resultado</title>
+        <title>Draftstore</title>
     </head>
     <body>
-        <h1>Contato incluido com sucesso</h1>
+        <h1>Registro incluido com sucesso!</h1>
         <a href="Servlet/BuscarFornecedor">Voltar</a>
     </body>
 </html>

@@ -10,10 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
-        <title>Agenda - PI3</title>
+        <title>Draftstore</title>
     </head>
     <body>
         <h1>Usuário não autorizado a acessar esta página</h1>
-        <a href="BuscarFornecedorServlet">Voltar</a>
+        <a href="Servlet/BuscarFornecedor">Voltar</a>
     </body>
 </html>

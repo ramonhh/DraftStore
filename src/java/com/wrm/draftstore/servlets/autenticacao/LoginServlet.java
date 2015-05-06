@@ -43,10 +43,12 @@ public class LoginServlet extends HttpServlet {
     Statement stmt = null;
     Connection conn = null;
     
-    String sql = "SELECT TB_USUARIO.LOGIN, TB_USUARIO.SENHA, TB_USUARIO.NOME_FUNCIONARIO, TB_PAPEL.NOME_PAPEL\n" +
-"    FROM TB_USUARIO\n" +
-"    INNER JOIN TB_PAPEL\n" +
-"    ON TB_USUARIO.FK_PAPEL = TB_PAPEL.ID_PAPEL";
+    String sql = "SELECT TB_USUARIO.ID_USUARIO, "
+                + "TB_USUARIO.LOGIN, TB_USUARIO.SENHA, "
+                + "TB_USUARIO.NOME_FUNCIONARIO, TB_PAPEL.NOME_PAPEL\n" +
+                  "    FROM TB_USUARIO\n" +
+                  "    INNER JOIN TB_PAPEL\n" +
+                  "    ON TB_USUARIO.FK_PAPEL = TB_PAPEL.ID_PAPEL";
     try {
       conn = conexaoBD.obterConexao();
       stmt = conn.createStatement();
@@ -56,6 +58,7 @@ public class LoginServlet extends HttpServlet {
 
       while (resultados.next()) {
           Usuario user = new Usuario();
+          user.setIdUsuario(resultados.getString("ID_USUARIO"));
           user.setLogin(resultados.getString("LOGIN"));
           user.setHashSenha(resultados.getString("SENHA").toCharArray());
           user.setNomeDoFuncionario(resultados.getString("NOME_FUNCIONARIO"));

@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
-        <title>Agenda - PI3</title>
+        <title>Draftstore</title>
     </head>
     <body>
         <h1>Erro ao fazer login</h1>

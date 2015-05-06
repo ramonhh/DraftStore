@@ -115,7 +115,7 @@
         </div>
         <div class="normal">
           <label> Endereço </label>
-          <input type="text" class="inputRazao" name="normal">
+          <input type="text" class="inputRazao" name="endereco">
         </div>
         <div>
           <label> Bairro </label>

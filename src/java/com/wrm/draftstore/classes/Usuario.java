@@ -22,10 +22,12 @@ import javax.crypto.spec.PBEKeySpec;
  */
 public class Usuario {
 
+  private String idUsuario;
+
   private String login;
 
   private String nomeDoFuncionario;
-  
+
   private char[] hashSenha;
 
   private String[] papeis;
@@ -35,7 +37,7 @@ public class Usuario {
   }
 
   public Usuario(String nome, String senha, String[] papeis) {
-      this.login = nome;
+    this.login = nome;
     try {
       this.hashSenha = gerarHashSenhaPBKDF2(senha);
     } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
@@ -44,13 +46,13 @@ public class Usuario {
     this.papeis = papeis;
   }
 
-    public String getLogin() {
-        return login;
-    }
+  public String getLogin() {
+    return login;
+  }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  public void setLogin(String login) {
+    this.login = login;
+  }
 
   public char[] getHashSenha() {
     return hashSenha;
@@ -67,25 +69,31 @@ public class Usuario {
   public void setPapeis(String[] papeis) {
     this.papeis = papeis;
   }
-  
-  public String getPapel(){
+
+  public String getPapel() {
     return papeis[0];
   }
-  
-  public void setPapel(String papel){
+
+  public void setPapel(String papel) {
     this.papeis[0] = papel;
   }
 
-    public String getNomeDoFuncionario() {
-        return nomeDoFuncionario;
-    }
+  public String getNomeDoFuncionario() {
+    return nomeDoFuncionario;
+  }
 
-    public void setNomeDoFuncionario(String nomeDoFuncionario) {
-        this.nomeDoFuncionario = nomeDoFuncionario;
-    }
+  public void setNomeDoFuncionario(String nomeDoFuncionario) {
+    this.nomeDoFuncionario = nomeDoFuncionario;
+  }
 
-  
-  
+  public String getIdUsuario() {
+    return idUsuario;
+  }
+
+  public void setIdUsuario(String idUsuario) {
+    this.idUsuario = idUsuario;
+  }
+
   /**
    * Geração do hash da senha usando algoritmo MD5 (mais comum). Não usado neste
    * exemplo
@@ -116,7 +124,7 @@ public class Usuario {
    * Geração do hash da senha usando algoritmo PBKDF2WithHmacSHA1 (mais seguro)
    * Exemplo obtido em
    * http://www.javacodegeeks.com/2012/05/secure-password-storage-donts-dos-and.html
-   * 
+   *
    * Depois que o hash é gerado, não é possível recuperar a senha original.
    *
    * @param senha
@@ -124,7 +132,8 @@ public class Usuario {
    * @throws NoSuchAlgorithmException
    * @throws InvalidKeySpecException
    */
-  public static char[] gerarHashSenhaPBKDF2(String senha) throws NoSuchAlgorithmException, InvalidKeySpecException {
+  public static char[] gerarHashSenhaPBKDF2(String senha) 
+          throws NoSuchAlgorithmException, InvalidKeySpecException {
     // PBKDF2 with SHA-1 as the hashing algorithm. Note that the NIST
     // specifically names SHA-1 as an acceptable hashing algorithm for PBKDF2
     String algorithm = "PBKDF2WithHmacSHA1";
@@ -166,11 +175,13 @@ public class Usuario {
     }
     return false;
   }
-  
+
   /**
-   * Verifica se usuário possui autorização de acesso baseado nos papeis que possui.
+   * Verifica se usuário possui autorização de acesso baseado nos papeis que
+   * possui.
+   *
    * @param papelNecessario
-   * @return 
+   * @return
    */
   public boolean autorizado(String papelNecessario) {
     List<String> papeisUsuario = Arrays.asList(this.papeis);
