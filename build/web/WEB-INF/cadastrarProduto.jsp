@@ -114,10 +114,13 @@
         <label class="putros"> Fornecedor </label>
         <select name="fornecedor" class="selectFornece" id="tp">
           <option selected disabled hidden value=''>Selecione</option>
-          <option class="teste" value="intel">DTek</option>
+          <c:forEach items="${listaFornecedores}" var="fornec" varStatus="stats">
+              <option value="${fornec.razaoSocial}">
+          </c:forEach>
+<!--          <option class="teste" value="intel">DTek</option>
           <option value="amd">SND Distribuição</option>
           <option value="asus">Kernel</option>
-          <option value="kingston">Mazer</option>
+          <option value="kingston">Mazer</option>-->
         </select>
       </div>
     </div>

@@ -115,17 +115,17 @@ public class CadastrarFornecedor extends HttpServlet {
         String site = request.getParameter("site");
         String numero = request.getParameter("numero");
         
-//        Fornecedor f = new Fornecedor(razaoSocial, cnpj, cep, endereco, bairro, 
-//                cidade, estado, telefone, email, site, numero);
-//        
-//        // 1) OBTEM AS INFORMACOES DO USUARIO DA SESSAO
-//        // A) CAST DOS PARÂMETROS RECEBIDOS
-//        HttpServletRequest httpRequest = (HttpServletRequest) request;
-//        // B) TENTA RECUPERAR A SESSÃO DO USUÁRIO
-//        HttpSession sessao = httpRequest.getSession();
-//        Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-//        
-//        cadastrarFornecedor(f, usuario);
+        Fornecedor f = new Fornecedor(razaoSocial, cnpj, cep, endereco, bairro, 
+                cidade, estado, telefone, email, site, numero);
+        
+        // 1) OBTEM AS INFORMACOES DO USUARIO DA SESSAO
+        // A) CAST DOS PARÂMETROS RECEBIDOS
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        // B) TENTA RECUPERAR A SESSÃO DO USUÁRIO
+        HttpSession sessao = httpRequest.getSession();
+        Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+        
+        cadastrarFornecedor(f, usuario);
         
         response.sendRedirect("../resultado.jsp");
         
