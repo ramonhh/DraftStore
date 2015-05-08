@@ -7,10 +7,6 @@
 $(document).ready(function(){
   $("tbody tr").click(function() {
     $(this).closest("tr").siblings().removeClass("highlighted");
-    $(this).toggleClass("highlighted");
+    $(this).toggleClass("highlighted");    
   })
 });
-
-function confirmarExcluir(){
-    
-}
