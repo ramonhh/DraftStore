@@ -42,7 +42,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <span class="visible-xs navbar-brand">Menu</span>
+            <span class="visible-xs navbar-brand">Menu lateral</span>
           </div>
           <div class="navbar-collapse collapse sidebar-navbar-collapse">
               <ul class="nav navbar-nav">
@@ -53,10 +53,10 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a href="BuscarProdutoServlet">Buscar </a>
+                      <a href="BuscarProduto">Buscar </a>
                     </li>
                     <li>
-                      <a href="CadastrarProdutoServlet">Cadastrar</a>
+                      <a href="CadastrarProduto">Cadastrar</a>
                     </li>
                   </ul>
                 </li>
@@ -64,10 +64,10 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Funcionários <b class="caret"></b></a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                     <a href="BuscarFuncionarioServlet">Buscar </a>
+                     <a href="BuscarFuncionario">Buscar </a>
                     </li>
                     <li>
-                      <a href="CadastrarFuncionarioServlet">Cadastrar</a>
+                      <a href="CadastrarFuncionario">Cadastrar</a>
                     </li>
 
                   </ul>

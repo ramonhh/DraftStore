@@ -56,7 +56,7 @@ public class CadastrarFuncionario extends HttpServlet {
         
         stmt.executeUpdate();
         
-        System.out.println("Registro incluido com sucesso.");
+        System.out.println("> Funcionario incluido com sucesso.");
 
       } catch (SQLException | ClassNotFoundException ex) {
         Logger.getLogger(CadastrarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,7 +110,7 @@ public class CadastrarFuncionario extends HttpServlet {
         
         cadastrarFornecedor(f);
         
-        response.sendRedirect("resultado.jsp");
+        response.sendRedirect("../resultado.jsp");
         
     }
 

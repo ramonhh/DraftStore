@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ramon.ahonorio
  */
-@WebServlet(name = "CadastrarProdutoServlet", urlPatterns = {"/Servlet/CadastrarProdutoServlet"})
+@WebServlet(name = "CadastrarProdutoServlet", urlPatterns = {"/Servlet/CadastrarProduto"})
 public class CadastrarProduto extends HttpServlet {
 
     /**
@@ -49,7 +49,7 @@ public class CadastrarProduto extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/cadastrarProduto.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/cadastrarProduto.jsp");
         rd.forward(request, response);
     }
 

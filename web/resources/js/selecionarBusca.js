@@ -10,3 +10,7 @@ $(document).ready(function(){
     $(this).toggleClass("highlighted");
   })
 });
+
+function confirmarExcluir(){
+    
+}

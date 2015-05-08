@@ -136,9 +136,10 @@
           	</thead>
           	<tbody>
                     <c:forEach items="${lista}" var="fornec" varStatus="stats">
-                        <tr class=" ">
+                        <tr id="lista[${stats.index}]">
                             <td><c:out value="${fornec.razaoSocial}"/></td>
                             <td><c:out value="${fornec.cnpj}"/></td>
+                            
                         </tr>
                     </c:forEach>
           	</tbody>
