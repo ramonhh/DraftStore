@@ -109,8 +109,8 @@ public class LoginServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-    String nome = request.getParameter("nome");
-    String senha = request.getParameter("senha");
+    String nome = request.getParameter("login");
+    String senha = request.getParameter("password");
 
     // Validar nome de usuário e senha.
     Usuario usuario = validar(nome, senha);

@@ -10,30 +10,32 @@ package com.wrm.draftstore.classes;
  * @author ramon.ahonorio
  */
 public class Produto {
+  
+    private float precoVenda;
     
-    private String marca;
+    private float percentualLucro;
     
     private String modelo;
     
-    private String tipoProduto;
+    private String marca;
     
-    private String idFornecedor;
+    private String tipoProduto;
     
     private float custo;
     
-    private float porcentagemLucro;
+    private int idFornecedor;
 
-    public float getPorcentagemLucro() {
-        return porcentagemLucro;
+    public float getPercentualLucro() {
+        return percentualLucro;
     }
-    public void setPorcentagemLucro(float porcentagemLucro) {
-        this.porcentagemLucro = porcentagemLucro;
+    public void setPercentualLucro(float percentualLucro) {
+        this.percentualLucro = percentualLucro;
     }
-    public float getCusto() {
-        return custo;
+    public float getPrecoVenda() {
+        return precoVenda;
     }
-    public void setCusto(float custo) {
-        this.custo = custo;
+    public void setPrecoVenda(float precoVenda) {
+        this.precoVenda = precoVenda;
     }
     public String getTipoProduto() {
         return tipoProduto;
@@ -53,13 +55,34 @@ public class Produto {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-    
-    public String getIdFornecedor() {
-        return idFornecedor;
-    }
 
-    public void setIdFornecedor(String idFornecedor) {
-        this.idFornecedor = idFornecedor;
-    }
+  public float getCusto() {
+    return custo;
+  }
 
+  public void setCusto(float custo) {
+    this.custo = custo;
+  }
+
+  public int getIdFornecedor() {
+    return idFornecedor;
+  }
+
+  public void setIdFornecedor(int idFornecedor) {
+    this.idFornecedor = idFornecedor;
+  }
+
+  public Produto(float precoVenda, float percentualLucro, String modelo, String marca, String tipoProduto, float custo, int idFornecedor) {
+    this.precoVenda = precoVenda;
+    this.percentualLucro = percentualLucro;
+    this.modelo = modelo;
+    this.marca = marca;
+    this.tipoProduto = tipoProduto;
+    this.custo = custo;
+    this.idFornecedor = idFornecedor;
+  }
+
+  public Produto() {
+  }
+  
 }

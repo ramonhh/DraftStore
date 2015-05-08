@@ -5,15 +5,21 @@
  */
 package com.wrm.draftstore.servlets.cadastro;
 
+import com.wrm.draftstore.classes.Fornecedor;
 import com.wrm.draftstore.classes.Produto;
 import com.wrm.draftstore.classes.Usuario;
 import com.wrm.draftstore.database.ConexaoBDJavaDB;
+import com.wrm.draftstore.servlets.busca.BuscarFornecedor;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -28,44 +34,38 @@ import javax.servlet.http.HttpSession;
  *
  * @author ramon.ahonorio
  */
-@WebServlet(name = "CadastrarProdutoServlet", urlPatterns = {"/Servlet/CadastrarProduto"})
+@WebServlet(name = "CadastrarProduto", urlPatterns = {"/Servlet/CadastrarProduto"})
 public class CadastrarProduto extends HttpServlet {
-
   public void cadastrarProduto(Produto p, Usuario u){
         ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "INSERT INTO TB_FORNECEDOR " // Notar que antes de fechar aspas tem espaço em branco!
-                + "(RAZAO_SOCIAL, CNPJ, CEP, ENDERECO, BAIRRO, NUMERO, CIDADE, ESTADO, TELEFONE, EMAIL, SITE, "
-                + "FK_USUARIO, DATA_CRIACAO) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ADM.TB_PRODUTO (PRECO_VENDA, PERCENTUAL_LUCRO, "
+                + "MODELO, MARCA, TIPO_PRODUTO, CUSTO, FK_FORNECEDOR, FK_USUARIO, DATA_CRIACAO) \n"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
         conn = conexaoBD.obterConexao();
         stmt = conn.prepareStatement(sql);
         
-        stmt.setString(1, f.getRazaoSocial());
-        stmt.setString(2, f.getCnpj());
-        stmt.setString(3, f.getCep());
-        stmt.setString(4, f.getEndereco());
-        stmt.setString(5, f.getBairro());
-        stmt.setString(6, f.getNumero());
-        stmt.setString(7, f.getCidade());
-        stmt.setString(8, f.getEstado());
-        stmt.setString(9, f.getTelefone());
-        stmt.setString(10, f.getEmail());
-        stmt.setString(11, f.getSite());
-        stmt.setString(12, u.getIdUsuario());
+        stmt.setFloat(1, p.getPrecoVenda());
+        stmt.setFloat(2, p.getPercentualLucro());
+        stmt.setString(3, p.getModelo());
+        stmt.setString(4, p.getMarca());
+        stmt.setString(5, p.getTipoProduto());
+        stmt.setFloat(6, p.getCusto());
+        stmt.setInt(7, p.getIdFornecedor());
+        stmt.setString(8, u.getIdUsuario());
         
         // Criando um Timestamp atual do sistema
         Date dataAtual = new Date();
         String timeStamp = new Timestamp(dataAtual.getTime()).toString();
         
-        stmt.setString(13, timeStamp);
+        stmt.setString(9, timeStamp);
         
         stmt.executeUpdate();
         
-        System.out.println("Registro incluido com sucesso.");
+        System.out.println("> Produto cadastrado com sucesso.");
 
       } catch (SQLException | ClassNotFoundException ex) {
         Logger.getLogger(CadastrarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,6 +101,31 @@ public class CadastrarProduto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        request.setCharacterEncoding("UTF-8");
+        
+        float precoVenda = Float.parseFloat(request.getParameter("precoVenda"));
+        float percentualLucro = Float.parseFloat(request.getParameter("lucro"));
+        String modelo = request.getParameter("modelo");
+        String marca = request.getParameter("marca");
+        String tipoProduto = request.getParameter("tipoProduto");
+        float custo = Float.parseFloat(request.getParameter("custo"));
+        int fkFornecedor = Integer.parseInt(request.getParameter("fornecedor"));
+        
+        Produto p = new Produto(precoVenda, percentualLucro, modelo, 
+                marca, tipoProduto, custo, fkFornecedor);
+        
+        // 1) OBTEM AS INFORMACOES DO USUARIO DA SESSAO
+        // A) CAST DOS PARÂMETROS RECEBIDOS
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        // B) TENTA RECUPERAR A SESSÃO DO USUÁRIO
+        HttpSession sessao = httpRequest.getSession();
+        Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+        
+        cadastrarProduto(p, usuario);
+        
+        System.out.println("> Fornecedor cadastrado.");
+        response.sendRedirect("../resultado.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -132,37 +157,9 @@ public class CadastrarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
+        processRequest(request, response);
         
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
         
-        String razaoSocial = request.getParameter("razaoSocial");
-        String cnpj = request.getParameter("cnpj");
-        String cep = request.getParameter("cep");
-        String endereco = request.getParameter("endereco");
-        String bairro = request.getParameter("bairro");
-        String cidade = request.getParameter("cidade");
-        String estado = request.getParameter("uf");
-        String telefone = request.getParameter("telefone");
-        String email = request.getParameter("email");
-        String site = request.getParameter("site");
-        String numero = request.getParameter("numero");
-        
-//        Fornecedor f = new Fornecedor(razaoSocial, cnpj, cep, endereco, bairro, 
-//                cidade, estado, telefone, email, site, numero);
-        
-        // 1) OBTEM AS INFORMACOES DO USUARIO DA SESSAO
-        // A) CAST DOS PARÂMETROS RECEBIDOS
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
-        // B) TENTA RECUPERAR A SESSÃO DO USUÁRIO
-        HttpSession sessao = httpRequest.getSession();
-        Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-        
-        cadastrarFornecedor(f, usuario);
-        
-        System.out.println("> Fornecedor cadastrado.");
-        response.sendRedirect("../resultado.jsp");
     }
 
     /**

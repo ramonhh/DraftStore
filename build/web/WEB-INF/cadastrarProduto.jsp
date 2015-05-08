@@ -114,8 +114,8 @@
         <label class="putros"> Fornecedor </label>
         <select name="fornecedor" class="selectFornece" id="tp">
           <option selected disabled hidden value=''>Selecione</option>
-          <c:forEach items="${listaFornecedores}" var="fornec" varStatus="stats">
-              <option value="${fornec.razaoSocial}">
+          <c:forEach items="${lista}" var="fornec" varStatus="stats">
+              <option value="${fornec.idFornecedor}">${fornec.razaoSocial}</option>
           </c:forEach>
 <!--          <option class="teste" value="intel">DTek</option>
           <option value="amd">SND Distribuição</option>
@@ -126,7 +126,7 @@
     </div>
       <div>
         <label class="lbProduto"> Marca </label>
-        <input type="text" class="inpus" >
+        <input type="text" class="inpus" name="marca">
       </div>
       <div>
         <label class="lbProduto"> Modelo </label>
@@ -134,15 +134,15 @@
       </div>
       <div>
         <label class="lbProduto"> Custo </label>
-        <input type="text" name="custo" class="inputCusto" >
+        <input type="text"  class="inputCusto" name="custo">
         <div class="quebra">
-        <label class="outros"> % de lucro </label>
-        <input type="number" min="1" step="0.1" value="10" name="lucro">
+          <label class="outros"> % de lucro </label>
+          <input type="number" min="1" step="0.1" value="10" name="lucro">
+        </div>
       </div>
-    </div>
       <div>
         <label class="lbProduto"> Preço de Venda </label>
-        <input type="text" class="inputPrevisto" placeholder="R$ 00,00 ">
+        <input type="text" class="inputPrevisto" placeholder="R$ 00,00 " name="precoVenda">
       </div>
 
       <div class="botoesFormulario">

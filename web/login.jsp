@@ -17,7 +17,11 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-  <form method="post" action="Login" class="login">
+  <form action="Login" 
+        method="post" 
+        accept-charset="UTF-8" 
+        enctype="application/x-www-form-urlencoded"
+        class="login">
     <p>
       <label for="login">Login </label>
       <input type="text" name="login" id="login" placeholder="name@example.com">

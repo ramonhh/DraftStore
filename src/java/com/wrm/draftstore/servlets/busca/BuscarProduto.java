@@ -5,7 +5,7 @@
  */
 package com.wrm.draftstore.servlets.busca;
 
-import com.wrm.draftstore.classes.Fornecedor;
+import com.wrm.draftstore.classes.Produto;
 import com.wrm.draftstore.database.ConexaoBDJavaDB;
 import java.io.IOException;
 import java.sql.Connection;
@@ -31,24 +31,27 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/Servlet/BuscarProduto"})
 public class BuscarProduto extends HttpServlet {
 
-  public List<Fornecedor> listarFornecedores() {
+  public List<Produto> listarProdutos() {
     ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
     Statement stmt = null;
     Connection conn = null;
 
-    String sql = "SELECT RAZAO_SOCIAL, CNPJ FROM TB_FORNECEDOR";
+    String sql = "SELECT TIPO_PRODUTO, MARCA, MODELO, PRECO_VENDA FROM TB_PRODUTO";
     try {
       conn = conexaoBD.obterConexao();
       stmt = conn.createStatement();
       ResultSet resultados = stmt.executeQuery(sql);
       
-      List<Fornecedor> lista = new ArrayList<>();
+      List<Produto> lista = new ArrayList<>();
 
       while (resultados.next()) {
-          Fornecedor f = new Fornecedor();
-          f.setRazaoSocial(resultados.getString("RAZAO_SOCIAL"));
-          f.setCnpj(resultados.getString("CNPJ"));
-          lista.add(f);
+          Produto p = new Produto();
+          p.setTipoProduto(resultados.getString("TIPO_PRODUTO"));
+          p.setMarca(resultados.getString("MARCA"));
+          p.setModelo(resultados.getString("MODELO"));
+          p.setPrecoVenda(resultados.getFloat("PRECO_VENDA"));
+          
+          lista.add(p);
       }
       
      return lista;
@@ -94,9 +97,9 @@ public class BuscarProduto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        request.setAttribute("lista", listarFornecedores());
+        request.setAttribute("lista", listarProdutos());
         
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/buscarProduto.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("../WEB-INF/buscarProduto.jsp");
         rd.forward(request, response);
     }
     /**
