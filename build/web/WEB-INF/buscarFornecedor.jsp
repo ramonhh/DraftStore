@@ -9,7 +9,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,9 +60,7 @@
                                 <span class="icon-bar">
                                 </span>
                             </button>
-                            <span class="visible-xs navbar-brand">
-                                Sidebar menu
-                            </span>
+                            <span class="visible-xs navbar-brand">Menu de navegação</span>
                         </div>
                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                             <ul class="nav navbar-nav">

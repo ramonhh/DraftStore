@@ -42,7 +42,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <span class="visible-xs navbar-brand">Menu lateral</span>
+            <span class="visible-xs navbar-brand">Menu de navegação</span>
           </div>
           <div class="navbar-collapse collapse sidebar-navbar-collapse">
               <ul class="nav navbar-nav">

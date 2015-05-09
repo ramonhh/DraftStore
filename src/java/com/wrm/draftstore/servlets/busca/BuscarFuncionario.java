@@ -30,49 +30,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "BuscarFuncionario", 
         urlPatterns = {"/Servlet/BuscarFuncionario"})
 public class BuscarFuncionario extends HttpServlet {
-
-  public List<Fornecedor> listarFornecedores() {
-    ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
-    Statement stmt = null;
-    Connection conn = null;
-
-    String sql = "SELECT RAZAO_SOCIAL, CNPJ FROM TB_FORNECEDOR";
-    try {
-      conn = conexaoBD.obterConexao();
-      stmt = conn.createStatement();
-      ResultSet resultados = stmt.executeQuery(sql);
-      
-      List<Fornecedor> lista = new ArrayList<>();
-
-      while (resultados.next()) {
-          Fornecedor f = new Fornecedor();
-          f.setRazaoSocial(resultados.getString("RAZAO_SOCIAL"));
-          f.setCnpj(resultados.getString("CNPJ"));
-          lista.add(f);
-      }
-      
-     return lista;
-
-    } catch (SQLException | ClassNotFoundException ex) {
-      Logger.getLogger(BuscarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-    } finally {
-      if (stmt != null) {
-        try {
-          stmt.close();
-        } catch (SQLException ex) {
-          Logger.getLogger(BuscarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      }
-      if (conn != null) {
-        try {
-          conn.close();
-        } catch (SQLException ex) {
-          Logger.getLogger(BuscarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      }
-    }
-    return null;
-  }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -86,17 +43,14 @@ public class BuscarFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         processRequest(request, response);
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        request.setAttribute("lista", listarFornecedores());
         
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/buscarFuncionario.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("../WEB-INF/buscarFuncionario.jsp");
         rd.forward(request, response);
     }
     /**
@@ -110,7 +64,7 @@ public class BuscarFuncionario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+       processRequest(request, response);
     }
 
     /**

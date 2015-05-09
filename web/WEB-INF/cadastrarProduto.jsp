@@ -44,7 +44,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <span class="visible-xs navbar-brand">Menu lateral</span>
+            <span class="visible-xs navbar-brand">Menu de navegação</span>
           </div>
           <div class="navbar-collapse collapse sidebar-navbar-collapse">
               <ul class="nav navbar-nav">
@@ -134,31 +134,29 @@
       </div>
       <div>
         <label class="lbProduto"> Custo </label>
-        <input type="text"  class="inputCusto" name="custo">
+        <!--<input type="text"  class="inputCusto" name="custo">-->
+        <input type="number" min="0.1" step="0.01" value="120" name="custo" class="inputCusto"/>
         <div class="quebra">
           <label class="outros"> % de lucro </label>
-          <input type="number" min="1" step="0.1" value="10" name="lucro">
+          <input type="number" min="1" step="0.1" value="50" name="lucro" class="inputLucro"/>
         </div>
       </div>
       <div>
         <label class="lbProduto"> Preço de Venda </label>
-        <input type="text" class="inputPrevisto" placeholder="R$ 00,00 " name="precoVenda">
+        <input type="text" class="inputPrevisto" placeholder="R$ 00,00" name="precoVenda" disabled>
       </div>
 
       <div class="botoesFormulario">
         <button type="button" class="btn btn-danger">Cancelar</button>
         <button type="submit" class="btn btn-default">Cadastrar</button>
       </div>
-          
       </form>
-
-      
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-
+    <script src ="../resources/js/validacoesCampos.js"></script>
   </body>
   </html>
