@@ -153,7 +153,6 @@
                                 <tr id="lista[${stats.index}]">
                                     <td><c:out value="${fornec.razaoSocial}"/></td>
                                     <td><c:out value="${fornec.cnpj}"/></td>
-
                                 </tr>
                             </c:forEach>
                         </tbody>

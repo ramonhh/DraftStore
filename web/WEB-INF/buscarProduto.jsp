@@ -140,10 +140,12 @@
                         </thead>
                         <tbody>
                             <c:forEach items="${lista}" var="produto" varStatus="stats">
+                                <tr id="lista[${stats.index}]">
                                 <td>${produto.tipoProduto}</td>
                                 <td>${produto.marca}</td>
                                 <td>${produto.modelo}</td>
                                 <td>${produto.precoVenda}</td>
+                                </tr>
                             </c:forEach>
 
 <!--                            <tr class="">

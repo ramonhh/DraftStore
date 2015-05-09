@@ -17,6 +17,7 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
+    
   <form action="Login" 
         method="post" 
         accept-charset="UTF-8" 
@@ -36,7 +37,7 @@
       <button type="submit" class="login-button">Login</button>
     </p>
 
-    <p class="forgot-password"><a href="">Esqueceu sua senha ?</a></p>
+    <p class="forgot-password"><a href="#">Esqueceu sua senha?<br>Contate a equipe de suporte.</a></p>
   </form>
 
   <section class="about">

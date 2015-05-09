@@ -105,10 +105,10 @@
         <label class="lbProduto"> Tipo do Produto </label>
         <select name="tipoProduto" id="tp">
           <option selected disabled hidden value=''>Selecione</option>
-          <option value="processador">Processador</option>
-          <option value="placaMae">Placa-mãe</option>
-          <option value="memoria">Memória</option>
-          <option value="fonte">Fonte</option>
+          <option value="Processador">Processador</option>
+          <option value="Placa-mae">Placa-mãe</option>
+          <option value="Memoria">Memória</option>
+          <option value="Fonte">Fonte</option>
         </select>
         <div class="quebra">
         <label class="putros"> Fornecedor </label>
