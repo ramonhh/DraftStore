@@ -17,6 +17,8 @@ import javax.servlet.http.HttpSession;
 import com.wrm.draftstore.classes.*;
 import com.wrm.draftstore.database.ConexaoBDJavaDB;
 import com.wrm.draftstore.servlets.busca.BuscarFornecedor;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,112 +36,130 @@ import java.util.logging.Logger;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/Login"})
 public class LoginServlet extends HttpServlet {
 
-  // OBS: Usuarios mantidos em um mapa somente como exemplo.
-  // A validação deve ser feita com os dados armazenados no BD.
-  private static final Map<String, Usuario> USUARIOS_CADASTRADOS;
-  
-  public static HashMap<String, Usuario> carregarUsuarios(){
-    ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
-    Statement stmt = null;
-    Connection conn = null;
-    
-    String sql = "SELECT TB_USUARIO.ID_USUARIO, "
-                + "TB_USUARIO.LOGIN, TB_USUARIO.SENHA, "
-                + "TB_USUARIO.NOME_FUNCIONARIO, TB_PAPEL.NOME_PAPEL\n" +
-                  "    FROM TB_USUARIO\n" +
-                  "    INNER JOIN TB_PAPEL\n" +
-                  "    ON TB_USUARIO.FK_PAPEL = TB_PAPEL.ID_PAPEL";
-    try {
-      conn = conexaoBD.obterConexao();
-      stmt = conn.createStatement();
-      ResultSet resultados = stmt.executeQuery(sql);
-      
-      HashMap<String, Usuario> mapa = new HashMap<>();
+    private static String nome, senha;
 
-      while (resultados.next()) {
-          Usuario user = new Usuario();
-          user.setIdUsuario(resultados.getString("ID_USUARIO"));
-          user.setLogin(resultados.getString("LOGIN"));
-          user.setHashSenha(resultados.getString("SENHA").toCharArray());
-          user.setNomeDoFuncionario(resultados.getString("NOME_FUNCIONARIO"));
-          user.setPapel(resultados.getString("NOME_PAPEL"));
-          
-          mapa.put(user.getLogin(), user);
-      }
-      
-     return mapa;
+    // OBS: Usuarios mantidos em um mapa somente como exemplo.
+    // A validação deve ser feita com os dados armazenados no BD.
+    private static Map<String, Usuario> USUARIOS_CADASTRADOS;
 
-    } catch (SQLException | ClassNotFoundException ex) {
-      Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
-    } finally {
-      if (stmt != null) {
+    public static HashMap<String, Usuario> carregarUsuarios(String nome, String senha) {
+
+        String hashSenha = "";
+        ConexaoBDJavaDB conexaoBD = new ConexaoBDJavaDB("draftstoredb");
+        Statement stmt = null;
+        Connection conn = null;
+
+        //Gerar hash da senha digitada para buscar o usuário no banco.
         try {
-          stmt.close();
-        } catch (SQLException ex) {
-          Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+            char[] c = Usuario.gerarHashSenhaPBKDF2(senha);
+            for (char carac : c) { //Iterar no array retornado, para montar a string que está salva na base
+                hashSenha += carac;
+            }
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
+            Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }
-      }
-      if (conn != null) {
+
+        String sql = "SELECT TB_USUARIO.ID_USUARIO, "
+                + "          TB_USUARIO.LOGIN, TB_USUARIO.SENHA, "
+                + "          TB_USUARIO.NOME_FUNCIONARIO, TB_PAPEL.NOME_PAPEL\n"
+                + "     FROM TB_USUARIO\n"
+                + "     JOIN TB_PAPEL\n"
+                + "      ON TB_USUARIO.FK_PAPEL = TB_PAPEL.ID_PAPEL"
+                + "   WHERE TB_USUARIO.LOGIN = '" + nome
+                + "'     AND TB_USUARIO.SENHA = '" + hashSenha + "'";
         try {
-          conn.close();
-        } catch (SQLException ex) {
-          Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+            conn = conexaoBD.obterConexao();
+            stmt = conn.createStatement();
+            ResultSet resultados = stmt.executeQuery(sql);
+
+            HashMap<String, Usuario> mapa = new HashMap<>();
+
+            while (resultados.next()) {
+                Usuario user = new Usuario();
+                user.setIdUsuario(resultados.getString("ID_USUARIO"));
+                user.setLogin(resultados.getString("LOGIN"));
+                user.setHashSenha(resultados.getString("SENHA").toCharArray());
+                user.setNomeDoFuncionario(resultados.getString("NOME_FUNCIONARIO"));
+                user.setPapel(resultados.getString("NOME_PAPEL"));
+
+                mapa.put(user.getLogin(), user);
+            }
+
+            return mapa;
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(BuscarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
-      }
+        return null;
     }
-    return null;
-  }
 
-  static {
+    static {
 //    USUARIOS_CADASTRADOS = new HashMap<String, Usuario>();
 //    USUARIOS_CADASTRADOS.put("fulano", new Usuario("fulano", "abcd1234", new String[]{"ADMIN", "BASICO"}));
 //    USUARIOS_CADASTRADOS.put("ciclano", new Usuario("ciclano", "abcd1234", new String[]{"BASICO"}));
-//    USUARIOS_CADASTRADOS.put("ramonh", new Usuario("ramonh", "senac15", new String[]{"ADMIN"}));
-    USUARIOS_CADASTRADOS = carregarUsuarios();
-  }
-
-  /**
-   * Handles the HTTP <code>POST</code> method.
-   *
-   * @param request servlet request
-   * @param response servlet response
-   * @throws ServletException if a servlet-specific error occurs
-   * @throws IOException if an I/O error occurs
-   */
-  @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-          throws ServletException, IOException {
-    String nome = request.getParameter("login");
-    String senha = request.getParameter("password");
-
-    // Validar nome de usuário e senha.
-    Usuario usuario = validar(nome, senha);
-    if (usuario != null) {
-      HttpSession sessao = request.getSession(false);
-      if (sessao != null) {
-        // Força invalidação da sessão anterior.
-        sessao.invalidate();
-      }
-      sessao = request.getSession(true);
-      sessao.setAttribute("usuario", usuario);
-      
-      // Redireciona para a a tela principal
-      response.sendRedirect("Servlet/BuscarFornecedor");
-      return;
-      // FIM CASO SUCESSO
+//    USUARIOS_CADASTRADOS.put("ramonh", new Usuario("ramonh", "senac15", new String[]{"ADMIN"}));    
     }
-    response.sendRedirect("erroLogin.jsp");
 
-  }
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-  // Implementar aqui a validação do usuário com os dados
-  // armazenados no banco de dados.
-  private Usuario validar(String nome, String senha) {
-    Usuario usuario = USUARIOS_CADASTRADOS.get(nome);
-    if (usuario != null && usuario.autenticar(nome, senha)) {
-      return usuario;
+        nome = request.getParameter("login");
+        senha = request.getParameter("password");
+
+        USUARIOS_CADASTRADOS = carregarUsuarios(nome, senha);
+
+        // Validar nome de usuário e senha.
+        Usuario usuario = validar(nome, senha);
+        if (usuario != null) {
+            HttpSession sessao = request.getSession(false);
+            if (sessao != null) {
+                // Força invalidação da sessão anterior.
+                sessao.invalidate();
+            }
+            sessao = request.getSession(true);
+            sessao.setAttribute("usuario", usuario);
+
+            // Redireciona para a a tela principal
+            response.sendRedirect("Servlet/BuscarFornecedor");
+            return;
+            // FIM CASO SUCESSO
+        }
+        response.sendRedirect("erroLogin.jsp");
+
     }
-    return null;
-  }
+
+    // Implementar aqui a validação do usuário com os dados
+    // armazenados no banco de dados.
+    private Usuario validar(String nome, String senha) {
+        Usuario usuario = USUARIOS_CADASTRADOS.get(nome);
+        if (usuario != null && usuario.autenticar(nome, senha)) {
+            return usuario;
+        }
+        return null;
+    }
 
 }
