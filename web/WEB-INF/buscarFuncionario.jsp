@@ -92,7 +92,7 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fornecedores <b class="caret"></b></a>
+                                    <a href="RevistroVenda" class="dropdown-toggle" data-toggle="dropdown">Fornecedores <b class="caret"></b></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a href="BuscarFornecedor">Buscar</a>

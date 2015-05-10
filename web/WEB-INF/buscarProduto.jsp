@@ -70,7 +70,7 @@
                                     <a href="#">Registro de vendas</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
+                                    <a href="RevistroVenda" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a href="BuscarProduto">Buscar </a>

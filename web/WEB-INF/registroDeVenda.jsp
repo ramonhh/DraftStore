@@ -23,9 +23,15 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="../resources/css/estiloCadastro.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../resources/css/estiloRegistra.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/estiloCadastro.css">
 </head>
 <body>
     <header>
@@ -94,34 +100,69 @@
             </div>
         </div>
         <div class="col-sm-9">
- <form name="formulario1" action="PrimeiroServlet" method="POST">
-            <label> Nome </label>
-            <input type="text" name="nome" value="" size="20" />
-            <input type="submit" value="Enviar" name="bt" />
-            <input type="text" id="esporte" placeholder="Informe um esporte" name="outro"/>
-        </form>
-        
-        <h1> <%
-            if (request.getAttribute("nomeCompleto")!= null){
-            out.print(request.getAttribute("nomeCompleto"));
-        }
-            %> </h1>
-            
+
+            <form action="#" class="form-search">
+                <div class="submit-line">
+                    <input type="text" name="buscaProduto" />
+                    <button class="submit-lente" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+
+            <table class="table table">
+                <caption>Vendas</caption>
+                <thead>
+                    <tr>
+                        <th>Tipo de produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${lista}" var="produto" varStatus="stats">
+                    <tr id="lista[${stats.index}]">
+                        <td>${produto.tipoProduto}</td>
+                        <td>${produto.marca}</td>
+                        <td>${produto.modelo}</td>
+                        <td>${produto.precoVenda}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+        <div class="form2">
+            <form action="action" class="form-inline" method="post">
+                <div>
+                    <label> Data </label>
+                    <input type="date" class="iptData">
+                    <div class="quebra">
+                        <label id="labelTotal"> Total </label>
+                        <input type="number" placeholder="R$" class="iptTotal"> 
+                    </div>
+                    <br>
+                </div>
+                <div class="botao">
+                    <button class="btn btn-small btn-primary" type="button">Cancelar</button>
+                    <button class="btn btn-small" type="button">Confirmar Registro</button>
+
+                </div>
+
+
+            </form>
+        </div>
 
 
 
+    </div>       
 
 
+    <script src="../resources/js/autoComplete.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../resources/js/autoComplete"></script>
 
-
-        </div>       
-
-           
-        <script src="../resources/js/autoComplete.js"></script>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../bootstrap/js/bootstrap.min.js"></script>
-        
 </body>        
 </html>

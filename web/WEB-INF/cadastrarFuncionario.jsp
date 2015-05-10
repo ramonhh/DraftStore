@@ -47,7 +47,7 @@
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="#">Registro de vendas</a>
+                                <a href="RevistroVenda">Registro de vendas</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
