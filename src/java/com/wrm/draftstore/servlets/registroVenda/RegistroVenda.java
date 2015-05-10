@@ -35,7 +35,7 @@ public class RegistroVenda extends HttpServlet {
         String outro = request.getParameter("outro");
         request.setAttribute("nomeCompleto", "Bem vindo, " +nome +" Alves");
         log(nome + " Entrou ");
-        request.getRequestDispatcher("registroDeVenda.jsp").forward(request, response);
+        request.getRequestDispatcher("../WEB-INF/registroDeVenda.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
