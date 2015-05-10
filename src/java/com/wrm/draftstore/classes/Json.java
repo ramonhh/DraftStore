@@ -11,33 +11,27 @@ package com.wrm.draftstore.classes;
  */
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
 import com.wrm.draftstore.servlets.busca.BuscarProduto;
 
 public class Json {
- 
 
-       public void gerarJson() {
-            
-            BuscarProduto bp = new BuscarProduto();
-            
-            //instancia um objeto da classe Gson	    	
-            Gson gson = new Gson();
+  public void gerarJson() {
 
-            //pega os dados do filme, converte para JSON e armazena em string
-            String aux = gson.toJson( bp.listarProdutos());
+    BuscarProduto bp = new BuscarProduto();
 
-            //imprime os resultados
-            System.out.println(aux);
-        }
-       public static void main(String[] args) {
-        Json a = new Json();
-        a.gerarJson();
-    }
-       
-        }
+    //instancia um objeto da classe Gson	    	
+//    Gson gson = new Gson();
 
-           
-           
-    
+    //pega os dados do filme, converte para JSON e armazena em string
+//    String aux = gson.toJson(bp.listarProdutos());
 
+    //imprime os resultados
+//    System.out.println(aux);
+  }
+
+  public static void main(String[] args) {
+    Json a = new Json();
+    a.gerarJson();
+  }
+
+}

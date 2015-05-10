@@ -11,7 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>WRM - Sistema de Gerenciamento</title>
+    <title>
+        Draftstore - Registro de vendas
+    </title>
 
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +34,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../resources/css/estiloRegistra.css">
     <link rel="stylesheet" type="text/css" href="../resources/css/estiloCadastro.css">
+    <link rel="icon" href="../resources/img/draft.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../resources/img/draft.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -101,6 +105,7 @@
         </div>
         <div class="col-sm-9">
 
+            <caption>Buscar por produto</caption>
             <form action="#" class="form-search">
                 <div class="submit-line">
                     <input type="text" name="buscaProduto" />
@@ -108,10 +113,18 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
+                
+                <!--estou testando uma coisa aqui-->
+                <div class="search-container">
+                    <div class="ui-widget">
+                        <input type="text" id="search" name="search" class="search" />
+                    </div>
+                </div>
+                
             </form>
 
             <table class="table table">
-                <caption>Vendas</caption>
+                <caption>Carrinho</caption>
                 <thead>
                     <tr>
                         <th>Tipo de produto</th>

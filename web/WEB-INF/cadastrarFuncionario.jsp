@@ -13,7 +13,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>WRM - Sistema de Gerenciamento</title>
+    <title>
+        Draftstore - Cadastro de funcionário
+    </title>
 
     <!-- Bootstrap -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +27,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="../resources/css/estiloCadastro.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="../resources/img/draft.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../resources/img/draft.ico" type="image/x-icon">
 </head>
 <body>
     <header>

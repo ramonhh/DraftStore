@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cadastrarFornecedores
-    Created on : 23/04/2015, 21:24:58
-    Author     : ramon.ahonorio
+Document   : cadastrarFornecedores
+Created on : 23/04/2015, 21:24:58
+Author     : ramon.ahonorio
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -16,7 +16,7 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head
         content must come *after* these tags -->
         <title>
-            WRM - Sistema de Gerenciamento
+            Draftstore - Busca de fornecedor
         </title>
         <!-- Bootstrap -->
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,8 @@
           </script>
         <![endif]-->
         <link href="../resources/css/estilos.css" type="text/css" rel="stylesheet">
+        <link rel="icon" href="../resources/img/draft.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../resources/img/draft.ico" type="image/x-icon">
     </head>
 
     <body>

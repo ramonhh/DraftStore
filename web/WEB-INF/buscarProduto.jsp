@@ -18,7 +18,7 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head
         content must come *after* these tags -->
         <title>
-            WRM - Sistema de Gerenciamento
+            Draftstore - Busca de produto
         </title>
         <!-- Bootstrap -->
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +35,8 @@
           </script>
         <![endif]-->
         <link href="../resources/css/estilos.css" type="text/css" rel="stylesheet">
+        <link rel="icon" href="../resources/img/draft.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../resources/img/draft.ico" type="image/x-icon">
     </head>
 
     <body>
@@ -139,22 +141,22 @@
                         <tbody>
                             <c:forEach items="${lista}" var="produto" varStatus="stats">
                                 <tr id="lista[${stats.index}]">
-                                <td>${produto.tipoProduto}</td>
-                                <td>${produto.marca}</td>
-                                <td>${produto.modelo}</td>
-                                <td>${produto.precoVenda}</td>
+                                    <td>${produto.tipoProduto}</td>
+                                    <td>${produto.marca}</td>
+                                    <td>${produto.modelo}</td>
+                                    <td>${produto.precoVenda}</td>
                                 </tr>
                             </c:forEach>
 
-<!--                            <tr class="">
-                                <td>Intel Core I5</td>
-                                <td>Intel do Brasil</td>
-
-                            </tr>
-                            <tr class="">
-                                <td> Placa Mãe Asus 201A </td>
-                                <td> Asus </td>
-                            </tr>-->
+                            <!--                            <tr class="">
+                                                            <td>Intel Core I5</td>
+                                                            <td>Intel do Brasil</td>
+                            
+                                                        </tr>
+                                                        <tr class="">
+                                                            <td> Placa Mãe Asus 201A </td>
+                                                            <td> Asus </td>
+                                                        </tr>-->
                         </tbody>
                     </table>
                 </div>

@@ -10,7 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
-        <title>Draftstore</title>
+        <title>
+            Draftstore - Acesso não autorizado
+        </title>
+        <link rel="icon" href="../DraftStore/resources/img/draft.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../DraftStore/resources/img/draft.ico" type="image/x-icon">
     </head>
     <body>
         <h1>Usuário não autorizado a acessar esta página</h1>

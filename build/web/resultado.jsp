@@ -9,7 +9,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Draftstore</title>
+        <title>
+            Draftstore - Registro
+        </title>
+        <link rel="icon" href="../DraftStore/resources/img/draft.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../DraftStore/resources/img/draft.ico" type="image/x-icon">
     </head>
     <body>
         <h1>Registro incluido com sucesso!</h1>
