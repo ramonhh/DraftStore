@@ -103,10 +103,11 @@
                   action="CadastrarFuncionarioServlet"
                   method="POST" 
                   accept-charset="UTF-8"
-                  enctype="application/x-www-form-urlencoded">
-                <div>
-                    <label> Nome </label>
-                    <input type="text" class="inputRazao">
+                  enctype="application/x-www-form-urlencoded"
+                  data-toggle="validator" role="form">
+                <div class="form-group">
+                    <label  class="control-label"> Nome </label>
+                    <input type="text" class="form-control">
                 </div>
                 <div>
                     <label> Nascimento </label>
@@ -144,17 +145,16 @@
                     <label> Celular </label>
                     <input type="text" class="inputRazao">
                 </div>
-                <div>
-                    <label> Email </label>
-                    <input type="text" class="inputRazao">
-                </div>
-                <div>
-                    <label> Senha </label>
-                    <input type="text" class="inputRazao">
-                </div>
-                <div>
-                    <label> Confirmar Senha </label>
-                    <input type="text" class="inputRazao">
+                <div class="form-group">
+                    <label for="inputPassword" class="control-label">Senha</label>
+                    <div class="form-group col-sm-6">
+                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+                        <span class="help-block">Min 6 chars</span>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
                 </div>
                 <div class="botoesFormulario">
                     <button type="button" class="btn btn-danger">Cancelar</button>

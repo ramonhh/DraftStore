@@ -107,47 +107,47 @@
 
                 <div class="normal">
                     <label> Razão Social </label>
-                    <input type="text" class="inputRazao" name="razaoSocial">
+                    <input type="text" class="inputRazao" name="razaoSocial" <c:out value="${Fornecedor.razaoSocial}"/>>
                 </div>
                 <div>
                     <label> CNPJ </label>
-                    <input type="text" class="inputsFornecedor" name="cnpj">
+                    <input type="text" class="inputsFornecedor" name="cnpj" <c:out value="${Fornecedor.cnpj}"/>>
                     <div class="quebra">
                         <label class="labelFornecedor"> CEP </label>
-                        <input type="text" class="inputFornecedor" name="cep">
+                        <input type="text" class="inputFornecedor" name="cep" <c:out value="${Fornecedor.cep}"/>>
                     </div>
                 </div>
                 <div class="normal">
                     <label> Endereço </label>
-                    <input type="text" class="inputRazao" name="endereco">
+                    <input type="text" class="inputRazao" name="endereco" <c:out value="${Fornecedor.endereco}"/>>
                 </div>
                 <div>
                     <label> Bairro </label>
-                    <input type="text" class="inputsFornecedor" name="bairro">
+                    <input type="text" class="inputsFornecedor" name="bairro" <c:out value="${Fornecedor.bairro}"/>>
                     <div class="quebra">
                         <label class="labelFornecedor"> Número </label>
-                        <input type="text" class="inputFornecedor" name="numero">
+                        <input type="text" class="inputFornecedor" name="numero" <c:out value="${Fornecedor.numero}"/>>
                     </div>
                 </div>
                 <div>
                     <label>Cidade</label>
-                    <input type="text" class="inputsFornecedor" name="cidade">
+                    <input type="text" class="inputsFornecedor" name="cidade" <c:out value="${Fornecedor.cidade}"/>>
                     <div class="quebra">
                         <label class="labelFornecedor"> UF </label>
-                        <input type="text" class="inputFornecedor" name="uf">
+                        <input type="text" class="inputFornecedor" name="uf" <c:out value="${Fornecedor.estado}"/>>
                     </div>
                 </div>
                 <div class="normal">
                     <label> Telefone </label>
-                    <input type="text" class="inputRazao" name="telefone">
+                    <input type="text" class="inputRazao" name="telefone" <c:out value="${Fornecedor.telefone}"/>>
                 </div>
                 <div class="normal">
                     <label> Email </label>
-                    <input type="text" class="inputRazao" name="email">
+                    <input type="text" class="inputRazao" name="email" <c:out value="${Fornecedor.email}"/>>
                 </div>
                 <div class="normal">
                     <label> Site </label>
-                    <input type="text" class="inputRazao" name="site">
+                    <input type="text" class="inputRazao" name="site" <c:out value="${Fornecedor.site}"/>>
                 </div>
                 <div class="botoesFormulario">
                     <button type="button" class="btn btn-danger">Cancelar</button>
