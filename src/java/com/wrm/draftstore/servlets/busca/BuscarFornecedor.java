@@ -36,7 +36,10 @@ public class BuscarFornecedor extends HttpServlet {
     Statement stmt = null;
     Connection conn = null;
 
-    String sql = "SELECT RAZAO_SOCIAL, CNPJ FROM TB_FORNECEDOR";
+    String sql = "SELECT RAZAO_SOCIAL,"
+            + "          CNPJ,"
+            + "          ID_FORNECEDOR"
+            + "     FROM TB_FORNECEDOR";
     try {
       conn = conexaoBD.obterConexao();
       stmt = conn.createStatement();
@@ -48,6 +51,7 @@ public class BuscarFornecedor extends HttpServlet {
           Fornecedor f = new Fornecedor();
           f.setRazaoSocial(resultados.getString("RAZAO_SOCIAL"));
           f.setCnpj(resultados.getString("CNPJ"));
+          f.setIdFornecedor(resultados.getString("ID_FORNECEDOR"));
           lista.add(f);
       }
       

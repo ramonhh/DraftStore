@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 
-$(document).ready(function(){
-  $("tbody tr").click(function() {
-    $(this).closest("tr").siblings().removeClass("highlighted");
-    $(this).toggleClass("highlighted");    
-  })
+$(document).ready(function () {
+    $("tbody tr").click(function () {
+        $(this).closest("tr").siblings().removeClass("highlighted");
+        $(this).toggleClass("highlighted");
+        $("#inputHiddenEditar").val($(this).find(".hidden").html());        
+        $("#inputHiddenRemover").val($(this).find(".hidden").html());
+    });
 });
