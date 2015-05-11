@@ -287,3 +287,15 @@ label {
 .lt-ie9 .about {
   background: #313131;
 }
+
+.logo_login {
+   display: block;
+   background: url('../img/autenticacao_img.png') no-repeat;
+   width: 128px;
+   height: 128px;
+   position: relative;
+   padding-left: 30px;
+   margin: 80px auto;
+   left: 50px;
+   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+}

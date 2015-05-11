@@ -152,6 +152,10 @@
                     <label> Senha </label>
                     <input type="text" class="inputRazao">
                 </div>
+                <div>
+                    <label> Confirmar Senha </label>
+                    <input type="text" class="inputRazao">
+                </div>
                 <div class="botoesFormulario">
                     <button type="button" class="btn btn-danger">Cancelar</button>
                     <button type="submit" class="btn btn-default">Cadastrar</button>
