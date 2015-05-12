@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>
-        Draftstore - Cadastro de funcionário
+        Draftstore - Cadastro de fornecedor
     </title>
 
     <!-- Bootstrap -->
@@ -33,7 +33,7 @@
 <body>
     <header>
         <img id="logo" src="../resources/img/wrm-logoteste.png">
-        <div class="texto" id="titulo"><h1>Cadastrar Fornecedores</h1></div>
+        <div class="texto" id="titulo"><h1>Editar Fornecedor</h1></div>
     </header>
     <div class="row">
         <div class="col-sm-3">
@@ -100,67 +100,61 @@
             <!-- ********************** Inserir o conteudo aqui! ********************** -->
 
             <form class="form-inline" 
-                  action="CadastrarFuncionarioServlet"
-                  method="POST" 
+                  action="EditarFornecedor"
+                  method="POST"
                   accept-charset="UTF-8"
-                  enctype="application/x-www-form-urlencoded"
-                  data-toggle="validator" role="form">
-                <div class="form-group">
-                    <label  class="control-label"> Nome </label>
-                    <input type="text" class="form-control">
+                  enctype="application/x-www-form-urlencoded">
+
+                <div class="normal">
+                    <label> Razão Social </label>
+                    <input type="text" class="inputRazao" name="razaoSocial" value="<c:out value="${Fornecedor.razaoSocial}"/>">
                 </div>
                 <div>
-                    <label> Nascimento </label>
-                    <input type="text" class="inputsFornecedor">
+                    <label> CNPJ </label>
+                    <input type="text" class="inputsFornecedor" name="cnpj" value="<c:out value="${Fornecedor.cnpj}"/>">
                     <div class="quebra">
-                        <label class="labelFornecedor"> Sexo </label>
-                        <select id="tp">
-                            <option selected disabled hidden value="Selecione:">Selecione</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
-                        </select>
+                        <label class="labelFornecedor"> CEP </label>
+                        <input type="text" class="inputFornecedor" name="cep" value="<c:out value="${Fornecedor.cep}"/>">
                     </div>
                 </div>
+                <div class="normal">
+                    <label> Endereço </label>
+                    <input type="text" class="inputRazao" name="endereco" value="<c:out value="${Fornecedor.endereco}"/>">
+                </div>
                 <div>
-                    <label> CPF </label>
-                    <input type="text" class="inputRazao">
+                    <label> Bairro </label>
+                    <input type="text" class="inputsFornecedor" name="bairro" value="<c:out value="${Fornecedor.bairro}"/>">
                     <div class="quebra">
-                        <label> RG </label>
-                        <input type="text" class="inputsFornecedor">
+                        <label class="labelFornecedor"> Número </label>
+                        <input type="text" class="inputFornecedor" name="numero" value="<c:out value="${Fornecedor.numero}"/>">
                     </div>
                 </div>
                 <div>
-                    <label>Cargo</label>
-                    <input type="text" class="inputsFornecedor">
+                    <label>Cidade</label>
+                    <input type="text" class="inputsFornecedor" name="cidade" value="<c:out value="${Fornecedor.cidade}"/>">
                     <div class="quebra">
-                        <label class="labelFornecedor"> Admissão </label>
-                        <input type="text" class="inputFornecedor">
+                        <label class="labelFornecedor"> UF </label>
+                        <input type="text" class="inputFornecedor" name="uf" value="<c:out value="${Fornecedor.estado}"/>">
                     </div>
                 </div>
-                <div>
-                    <label class="labelFornecedor"> Telefone </label>
-                    <input type="text" class="inputFornecedor">
+                <div class="normal">
+                    <label> Telefone </label>
+                    <input type="text" class="inputRazao" name="telefone" value="<c:out value="${Fornecedor.telefone}"/>">
                 </div>
-                <div>
-                    <label> Celular </label>
-                    <input type="text" class="inputRazao">
+                <div class="normal">
+                    <label> Email </label>
+                    <input type="text" class="inputRazao" name="email" value="<c:out value="${Fornecedor.email}"/>">
                 </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="control-label">Senha</label>
-                    <div class="form-group col-sm-6">
-                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
-                        <span class="help-block">Min 6 chars</span>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
-                        <div class="help-block with-errors"></div>
-                    </div>
+                <div class="normal">
+                    <label> Site </label>
+                    <input type="text" class="inputRazao" name="site" value="<c:out value="${Fornecedor.site}"/>">
                 </div>
                 <div class="botoesFormulario">
                     <button type="button" class="btn btn-danger">Cancelar</button>
                     <button type="submit" class="btn btn-default">Cadastrar</button>
                 </div>
             </form>
+
 
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

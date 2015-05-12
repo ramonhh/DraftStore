@@ -114,21 +114,21 @@ public class CadastrarProduto extends HttpServlet {
         System.out.println("> Produto cadastrado com sucesso.");
 
       } catch (SQLException | ClassNotFoundException ex) {
-        Logger.getLogger(CadastrarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("ERRO! -> " + ex.getMessage());
       } finally {
         if (stmt != null) {
           try {
             stmt.close();
           } catch (SQLException ex) {
-            Logger.getLogger(CadastrarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
           }
         }
         if (conn != null) {
           try {
             conn.close();
           } catch (SQLException ex) {
-            Logger.getLogger(CadastrarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
           }
         }
       }

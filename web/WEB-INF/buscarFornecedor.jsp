@@ -148,7 +148,7 @@ Author     : ramon.ahonorio
                     <form id="formEditar"
                           class="form-search"
                           method="GET"
-                          action="CadastrarFornecedor">
+                          action="EditarFornecedor">
                         <input id="inputHiddenEditar" type="hidden" name="idFornecedor" value="">
                         <div class="botao">
                             <p>
