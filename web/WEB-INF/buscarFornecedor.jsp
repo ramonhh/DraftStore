@@ -67,6 +67,9 @@ Author     : ramon.ahonorio
                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                             <ul class="nav navbar-nav">
                                 <li>
+                                    <a href="Home">Home</a>
+                                </li>
+                                <li>
                                     <a href="RegistroVenda">Registro de vendas</a>
                                 </li>
                                 <li class="dropdown">

@@ -51,11 +51,14 @@
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="RevistroVenda">Registro de vendas</a>
+                                <a href="RegistroVenda">Registro de vendas</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produtos <b class="caret"></b></a>
                                 <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="Home">Home</a>
+                                    </li>
                                     <li>
                                         <a href="BuscarProduto">Buscar </a>
                                     </li>
