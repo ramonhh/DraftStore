@@ -21,8 +21,7 @@
         <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
     <body>
-        <div class="logo_login">
-        </div>
+
         <form action="Login" 
               method="post" 
               accept-charset="UTF-8" 
@@ -30,7 +29,7 @@
               class="login">
             <p>
                 <label for="login">Login </label>
-                <input type="text" name="login" id="login" placeholder="usuario@email.com">
+                <input type="text" name="login" id="login" placeholder="name@example.com">
             </p>
 
             <p>

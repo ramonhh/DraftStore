@@ -19,14 +19,6 @@
     padding-bottom: 15px;
   }
 }
-td .hidden
-{
-    display: none;
-}
-.botões .ações
-{
-    display: inline;
-}
 #logo {
 	display: inline-block;
 	margin-bottom: 30px;

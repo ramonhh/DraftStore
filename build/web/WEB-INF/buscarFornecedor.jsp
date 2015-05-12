@@ -121,7 +121,21 @@ Author     : ramon.ahonorio
                         </div>
                         <input type="text" class="input-medium search-query">
                         <input type="submit" class="btn">
-                    </form>                    
+                    </form>
+                    <form class="form-search" onsubmit="return confirm('Deseja realmente remover o fornecedor selecionado ?')">
+                        <div class="botao">
+                            <p>
+                                <button class="btn btn-small btn-primary" type="submit">Editar</button>
+                            </p>
+                        </div>	
+                    </form>
+                    <form class="form-search">
+                        <div class="botao">
+                            <p>
+                                <button class="btn btn-small" type="submit">Remover</button>
+                            </p>
+                        </div>	
+                    </form>
                 </div>
                 <br>
                 <div class="tabela">
@@ -138,32 +152,10 @@ Author     : ramon.ahonorio
                                 <tr id="lista[${stats.index}]">
                                     <td><c:out value="${fornec.razaoSocial}"/></td>
                                     <td><c:out value="${fornec.cnpj}"/></td>
-                                    <td class="hidden"><c:out value="${fornec.idFornecedor}"/></td>
                                 </tr>
                             </c:forEach>
-                        </tbody>                        
+                        </tbody>
                     </table>
-                </div>
-                <div class="botões ação">
-                    <form id="formEditar"
-                          class="form-search"
-                          method="GET"
-                          action="CadastrarFornecedor">
-                        <input id="inputHiddenEditar" type="hidden" name="idFornecedor" value="">
-                        <div class="botao">
-                            <p>
-                                <button class="btn btn-small btn-primary" type="submit">Editar</button>
-                            </p>
-                        </div>	
-                    </form>
-                    <form id="formRemover" class="form-search" onsubmit="return confirm('Deseja realmente remover o fornecedor selecionado ?')">
-                        <input id="inputHiddenRemover" type="hidden" name="idFornecedor" value="">
-                        <div class="botao">
-                            <p>
-                                <button class="btn btn-small" type="submit">Remover</button>
-                            </p>
-                        </div>	
-                    </form>
                 </div>
                 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
