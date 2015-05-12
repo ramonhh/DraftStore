@@ -51,7 +51,7 @@
                         </div>
                         <div class="navbar-collapse collapse sidebar-navbar-collapse">
                             <ul class="nav navbar-nav">
-                                <li>
+                               <li>
                                     <a href="Home">Home</a>
                                 </li>
                                 <li>
@@ -102,10 +102,9 @@
             </div>
             <div class="col-sm-9">
                 <!-- ********************** Inserir o conteudo aqui! ********************** -->
-                <p>
-                    Bem - Vindo ao DraftStore Sr(a): <c:out value="${usuario.nomeDoFuncionario}"/>
-                </p> 
-                
+               <p>
+            Bem - Vindo ao DraftStore Sr(a): <c:out value="${usuario.nomeDoFuncionario}"/>
+        </p> 
             </div>
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
