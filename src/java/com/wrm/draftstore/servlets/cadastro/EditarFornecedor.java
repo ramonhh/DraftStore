@@ -109,9 +109,9 @@ public class EditarFornecedor extends HttpServlet {
                 + "          FK_USUARIO,\n"
                 + "          DATA_CRIACAO,\n"
                 + "          RAZAO_SOCIAL,\n"
-                + "          CNPJ,\n"
-                + "          NOME_USUARIO"
-                + "     FROM TB_FORNECEDOR"
+                + "          CNPJ\n"
+//                + "          NOME_USUARIO"
+                + "     FROM TB_FORNECEDOR\n"
                 + "    WHERE TB_FORNECEDOR.ID_FORNECEDOR = " + idFornecedor.toString();
         try {
             conn = conexaoBD.obterConexao();
@@ -136,7 +136,7 @@ public class EditarFornecedor extends HttpServlet {
             return f;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(EditarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("ERRO! -> " + ex.getMessage());
+            System.out.println("ERRO SQL! -> " + ex.getMessage());
         } finally {
             if (stmt != null) {
                 try {
@@ -177,6 +177,7 @@ public class EditarFornecedor extends HttpServlet {
         // B) TENTA RECUPERAR A SESSÃO DO USUÁRIO
         HttpSession sessao = httpRequest.getSession();
         Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+        
         Fornecedor f = buscarFornecedor(request.getParameter("idFornecedor"), usuario);
         request.setAttribute("Fornecedor", f);
 

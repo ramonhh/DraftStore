@@ -159,7 +159,7 @@ public class Usuario {
     for (int i = 0; i < code.length; i++) {
       sb.append(Integer.toHexString(0xff & code[i]));
     }
-    System.out.println(sb.toString());
+//    System.out.println(sb.toString());
     return sb.toString().toCharArray();
   }
 
