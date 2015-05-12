@@ -43,6 +43,8 @@ body {
 	font-size: 20px;
 	width: auto;
 	height: auto;
+        background: #373737 url("../img/bg.png") 0 0 repeat;
+        color: white;
 }
 
 h1 {

@@ -109,12 +109,12 @@
                   enctype="application/x-www-form-urlencoded"
                   data-toggle="validator" role="form">
                 <div class="form-group">
-                    <label  class="control-label"> Nome </label>
-                    <input type="text" class="form-control">
+                    <label class="control-label"> Nome </label>
+                    <input type="text" class="form-control" id="inputName" required>
                 </div>
-                <div>
-                    <label> Nascimento </label>
-                    <input type="text" class="inputsFornecedor">
+                <div class="form-group">
+                    <label class="control-label"> Nascimento </label>
+                    <input type="date" class="inputsFornecedor form-control" required>
                     <div class="quebra">
                         <label class="labelFornecedor"> Sexo </label>
                         <select id="tp">
@@ -124,7 +124,7 @@
                         </select>
                     </div>
                 </div>
-                <div>
+                <div class="form-group">
                     <label> CPF </label>
                     <input type="text" class="inputRazao">
                     <div class="quebra">
@@ -132,7 +132,7 @@
                         <input type="text" class="inputsFornecedor">
                     </div>
                 </div>
-                <div>
+                <div class="form-horizontal">
                     <label>Cargo</label>
                     <input type="text" class="inputsFornecedor">
                     <div class="quebra">
@@ -170,5 +170,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../bootstrap/bootstrap-validator-master/dist/validator.min.js"></script>
+        <script src="../bootstrap/bootstrap-validator-master/assets/js/application.js"></script>
 </body>
 </html>
